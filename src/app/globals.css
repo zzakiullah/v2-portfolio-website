@@ -118,3 +118,16 @@ body {
   animation: sf-fly-by-3 5s linear infinite;
 }
 
+.main-icon {
+  font-size: 24pt;
+}
+
+.secret-btn {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1280px) {
+  .main-icon {
+    font-size: 20pt;
+  }
+}
