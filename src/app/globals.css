@@ -151,6 +151,26 @@ body {
   font-size: 16pt;
 }
 
+.custom-btn-wrapper > .custom-btn:hover,
+.custom-btn-wrapper > .custom-btn:focus {
+  opacity: 1;
+}
+
+.custom-btn-wrapper:has(> .custom-btn:hover) > .custom-btn:not(:hover),
+.custom-btn-wrapper:has(> .custom-btn:focus) > .custom-btn:not(:focus) {
+  opacity: 0.4;
+}
+
+.custom-btn:hover > span > .external-link-icon,
+.custom-btn:focus > span > .external-link-icon {
+  transform: rotate(-45deg);
+}
+
+.custom-btn:hover > span > .go-down-icon,
+.custom-btn:focus > span > .go-down-icon {
+  transform: rotate(90deg);
+}
+
 .secret-btn {
   cursor: pointer;
   text-decoration: underline;

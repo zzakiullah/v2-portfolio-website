@@ -48,6 +48,7 @@ export default function Home() {
           .
         </Text>
         <Flex
+          className={"custom-btn-wrapper"}
           flexDir={"row"}
           alignItems={"center"}
           justifyContent={"center"}
@@ -56,12 +57,33 @@ export default function Home() {
           zIndex={10}
         >
           <Button
+            className={"custom-btn"}
             fontSize={["lg"]}
+            px={[4]}
+            py={[5]}
+            border={"2px solid white"}
+            bgColor={"white"}
+            color={"black"}
+            _hover={{ bgColor: "white", color: "black" }}
+            _focus={{ bgColor: "white", color: "black" }}
+            rightIcon={<FaArrowRight className={"go-down-icon custom-transition-default"} />}
           >
             Learn more about me
           </Button>
           <Button
+            as={Link}
+            href={"#"}
+            isExternal
+            className={"custom-btn"}
             fontSize={["lg"]}
+            px={[4]}
+            py={[5]}
+            border={"2px solid white"}
+            bgColor={"transparent"}
+            color={"white"}
+            _hover={{ bgColor: "transparent", color: "white", textDecor: "none" }}
+            _focus={{ bgColor: "transparent", color: "white", textDecor: "none" }}
+            rightIcon={<FaArrowRight className={"external-link-icon custom-transition-default"} />}
           >
            Just get my resume
           </Button>
