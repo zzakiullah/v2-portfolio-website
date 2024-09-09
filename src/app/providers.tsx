@@ -1,15 +1,20 @@
 "use client";
 
-// import { Inter } from "next/font/google";
+import { Poppins, Figtree } from "next/font/google";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
-// const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const figtree = Figtree({ subsets: ["latin"] });
 
 const theme = extendTheme({
     colors: {
     },
     fonts: {
-        // body: inter.style.fontFamily,
+        heading: poppins.style.fontFamily,
+        body: figtree.style.fontFamily,
     },
     fontSizes: {
         "2xs": "0.625rem",

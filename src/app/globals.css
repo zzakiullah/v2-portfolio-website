@@ -38,6 +38,25 @@ body {
   }
 }
 
+.chakra-transition-default {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow,
+      transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.custom-transition-default {
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-transition-fast {
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-transition-slow {
+  transition: all 0.5s ease-in-out;
+}
+
 .main-bg {
   background-image: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("/assets/galaxy-background.jpg");
   background-size: cover;
@@ -118,14 +137,27 @@ body {
   animation: sf-fly-by-3 5s linear infinite;
 }
 
+.main-icon-link-wrapper > .main-icon-link:hover,
+.main-icon-link-wrapper > .main-icon-link:focus {
+  opacity: 1;
+}
+
+.main-icon-link-wrapper:has(> .main-icon-link:hover) > .main-icon-link:not(:hover),
+.main-icon-link-wrapper:has(> .main-icon-link:focus) > .main-icon-link:not(:focus) {
+  opacity: 0.4;
+}
+
 .main-icon {
-  font-size: 24pt;
+  font-size: 16pt;
 }
 
 .secret-btn {
   cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
+/* xl screen */
 @media only screen and (min-width: 1280px) {
   .main-icon {
     font-size: 20pt;

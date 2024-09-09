@@ -1,5 +1,5 @@
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
-import { FaEnvelope, FaLinkedin, FaGithub, FaRegCopyright, FaArrowRight } from "react-icons/fa6";
+import { FaEnvelope, FaLinkedin, FaGithub, FaFileLines, FaRegCopyright, FaArrowRight } from "react-icons/fa6";
 
 export default function Home() {
   return (
@@ -29,13 +29,14 @@ export default function Home() {
         <Heading
           as={"h1"}
           color={"white"}
-          fontSize={["7xl"]}
+          fontSize={["8xl"]}
+          fontWeight={"semibold"}
         >
           Hi, I&apos;m Zulaikha
         </Heading>
         <Text
           color={"white"}
-          fontSize={["2xl"]}
+          fontSize={["3xl"]}
         >
           Welcome to my space. Feel free to&nbsp;
           <Box
@@ -54,15 +55,20 @@ export default function Home() {
           mt={4}
           zIndex={10}
         >
-          <Button>
-            Explore
+          <Button
+            fontSize={["lg"]}
+          >
+            Learn more about me
           </Button>
-          <Button>
-            Resume
+          <Button
+            fontSize={["lg"]}
+          >
+           Just get my resume
           </Button>
         </Flex>
       </Flex>
       <Flex
+        className={"main-icon-link-wrapper"}
         flexDir={"row"}
         alignItems={"center"}
         justifyContent={"center"}
@@ -70,33 +76,45 @@ export default function Home() {
         zIndex={10}
       >
         <Link
+          className={"main-icon-link"}
           href={"mailto:zzakiullah1@gmail.com"}
           isExternal
           color={"white"}
         >
-          <FaEnvelope className={"main-icon"} />
+          <FaEnvelope className={"main-icon custom-transition-slow"} />
         </Link>
         <Link
+          className={"main-icon-link"}
           href={"https://linkedin.com/in/zulaikha-zakiullah"}
           isExternal
           color={"white"}
         >
-          <FaLinkedin className={"main-icon"} />
+          <FaLinkedin className={"main-icon custom-transition-slow"} />
         </Link>
         <Link
+          className={"main-icon-link"}
           href={"https://github.com/zzakiullah"}
           isExternal
           color={"white"}
         >
-          <FaGithub className={"main-icon"} />
+          <FaGithub className={"main-icon custom-transition-slow"} />
         </Link>
         <Link
+          className={"main-icon-link"}
           href={"#"}
           isExternal
           color={"white"}
         >
-          <FaRegCopyright className={"main-icon"} />
+          <FaFileLines className={"main-icon custom-transition-slow"} />
         </Link>
+        {/* <Link
+          className={"main-icon-link"}
+          href={"#"}
+          isExternal
+          color={"white"}
+        >
+          <FaRegCopyright className={"main-icon custom-transition-slow"} />
+        </Link> */}
       </Flex>
     </Flex>
   );
