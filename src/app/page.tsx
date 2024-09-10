@@ -3,6 +3,7 @@ import { FaEnvelope, FaLinkedin, FaGithub, FaFileLines, FaArrowRight } from "rea
 
 import MyNav from "@/components/MyNav";
 import MyFooter from "@/components/MyFooter";
+import ProgressBar from "@/components/ProgressBar";
 
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
@@ -43,14 +44,16 @@ export default function Home() {
           <Heading
             as={"h1"}
             color={"white"}
-            fontSize={["8xl"]}
+            fontSize={["4xl", "5xl", "5xl", "6xl", "7xl", "8xl"]}
             fontWeight={"semibold"}
+            textAlign={"center"}
           >
             Hi, I&apos;m Zulaikha
           </Heading>
           <Text
-            color={"white"}
-            fontSize={["3xl"]}
+            color={"zz.textGray"}
+            fontSize={["lg", "xl", "xl", "2xl", "2xl", "3xl"]}
+            textAlign={"center"}
           >
             Welcome to my space. Feel free to&nbsp;
             <Box
@@ -63,7 +66,7 @@ export default function Home() {
           </Text>
           <Flex
             className={"custom-btn-wrapper"}
-            flexDir={"row"}
+            flexDir={["column", "row"]}
             alignItems={"center"}
             justifyContent={"center"}
             gap={2}
@@ -72,34 +75,54 @@ export default function Home() {
           >
             <Button
               className={"custom-btn"}
-              fontSize={["lg"]}
-              px={[4]}
-              py={[5]}
+              w={["100%", "auto"]}
+              fontSize={["sm", "md", "md", "lg"]}
+              px={[3, 3, 3, 4]}
+              py={[4, 4, 4, 5]}
               border={"2px solid white"}
               bgColor={"white"}
               color={"black"}
               _hover={{ bgColor: "white", color: "black" }}
               _focus={{ bgColor: "white", color: "black" }}
-              rightIcon={<FaArrowRight className={"go-down-icon custom-transition-default"} />}
             >
-              Learn more about me
+              <Flex
+                as="span"
+                w={"100%"}
+                flexDir={"row"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                gap={2}
+              >
+                <Flex as="span">Get to know me</Flex>
+                <FaArrowRight className={"go-down-icon custom-transition-default"} />
+              </Flex>
             </Button>
             <Button
               as={Link}
               href={"#"}
               isExternal
               className={"custom-btn"}
-              fontSize={["lg"]}
-              px={[4]}
-              py={[5]}
+              w={["100%", "auto"]}
+              fontSize={["sm", "md", "md", "lg"]}
+              px={[3, 3, 3, 4]}
+              py={[4, 4, 4, 5]}
               border={"2px solid white"}
               bgColor={"transparent"}
               color={"white"}
               _hover={{ bgColor: "transparent", color: "white", textDecor: "none" }}
               _focus={{ bgColor: "transparent", color: "white", textDecor: "none" }}
-              rightIcon={<FaArrowRight className={"external-link-icon custom-transition-default"} />}
             >
-              Just get my resume
+              <Flex
+                as="span"
+                w={"100%"}
+                flexDir={"row"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                gap={2}
+              >
+                <Flex as="span">Get my resume</Flex>
+                <FaArrowRight className={"external-link-icon custom-transition-default"} />
+              </Flex>
             </Button>
           </Flex>
         </Flex>
@@ -108,7 +131,7 @@ export default function Home() {
           flexDir={"row"}
           alignItems={"center"}
           justifyContent={"center"}
-          gap={8}
+          gap={[6, 8]}
           zIndex={5}
         >
           <Link
@@ -152,12 +175,39 @@ export default function Home() {
       <Flex
         as={"main"}
         className={"min-h-screen p-8"}
-        bgColor={"spaceBg"}
+        bgColor={"zz.spaceBg"}
         flexDir={"column"}
         alignItems={"center"}
         zIndex={10}
       >
         <MyNav />
+        <Flex
+          className={"w-full"}
+          flexDir={"row"}
+        >
+          {/* <ProgressBar /> */}
+          <Flex
+            flexDir={"column"}
+            alignItems={"start"}
+            justifyContent={"center"}
+            flexGrow={1}
+          >
+            <Heading
+              as={"h2"}
+              fontSize={["6xl"]}
+              fontWeight={"medium"}
+              color={"white"}
+            >
+              Greetings from beyond
+            </Heading>
+            <Text
+              fontSize={["2xl"]}
+              color={"zz.textGray"}
+            >
+              Hello there ...
+            </Text>
+          </Flex>
+        </Flex>
         <About />
         <Skills />
         <Experience />
