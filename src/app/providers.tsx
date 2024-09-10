@@ -1,6 +1,6 @@
 "use client";
 
-import { Poppins, Figtree } from "next/font/google";
+import { Poppins, Figtree, Scheherazade_New } from "next/font/google";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const poppins = Poppins({
@@ -8,6 +8,10 @@ const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 const figtree = Figtree({ subsets: ["latin"] });
+const scheherazade_new = Scheherazade_New({
+    weight: ["400", "500", "600", "700"],
+    subsets: ["arabic"],
+});
 
 const theme = extendTheme({
     colors: {
@@ -19,6 +23,7 @@ const theme = extendTheme({
     fonts: {
         heading: poppins.style.fontFamily,
         body: figtree.style.fontFamily,
+        arabic: scheherazade_new.style.fontFamily,
     },
     fontSizes: {
         "2xs": "0.625rem",

@@ -1,5 +1,6 @@
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileLines, FaArrowRight } from "react-icons/fa6";
+import { MdVolumeUp } from "react-icons/md";
 
 import MyNav from "@/components/MyNav";
 import MyFooter from "@/components/MyFooter";
@@ -185,7 +186,10 @@ export default function Home() {
           className={"w-full"}
           flexDir={"row"}
         >
-          {/* <ProgressBar /> */}
+          <ProgressBar
+            color={""}
+            icon={<></>}
+          />
           <Flex
             flexDir={"column"}
             alignItems={"start"}
@@ -194,17 +198,30 @@ export default function Home() {
           >
             <Heading
               as={"h2"}
-              fontSize={["6xl"]}
+              fontSize={["7xl"]}
               fontWeight={"medium"}
               color={"white"}
             >
-              Greetings from beyond
+              Before you ask...
             </Heading>
             <Text
-              fontSize={["2xl"]}
+              display={"inline-flex"}
+              fontSize={["3xl"]}
               color={"zz.textGray"}
             >
-              Hello there ...
+              You can call me &quot;Zoo-lay-ka&quot; or&nbsp;
+              <Flex
+                as={"button"}
+                fontFamily={"arabic"}
+                flexDir={"row"}
+                textDecoration={"underline"}
+                textDecorationStyle={"dotted"}
+                alignItems={"center"}
+                gap={2}
+              >
+                زُلَيْخَة
+                <MdVolumeUp />
+              </Flex>
             </Text>
           </Flex>
         </Flex>
