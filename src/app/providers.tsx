@@ -11,6 +11,7 @@ const figtree = Figtree({ subsets: ["latin"] });
 
 const theme = extendTheme({
     colors: {
+        spaceBg: "#0c0717",
     },
     fonts: {
         heading: poppins.style.fontFamily,

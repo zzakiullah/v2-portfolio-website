@@ -15,11 +15,15 @@ export default function Home() {
     <>
       <Flex
         as={"header"}
-        className={"main-bg min-h-screen p-8"}
+        className={"min-h-screen p-8"}
         flexDir={"column"}
         alignItems={"center"}
         justifyContent={"space-between"}
       >
+        <Box
+          className="main-bg min-h-screen fixed inset-0"
+          zIndex={0}
+        />
         <Box className="star-field">
           <Box className="layer"></Box>
           <Box className="layer"></Box>
@@ -34,7 +38,7 @@ export default function Home() {
           flexDir={"column"}
           alignItems={"center"}
           justifyContent={"center"}
-          zIndex={10}
+          zIndex={5}
         >
           <Heading
             as={"h1"}
@@ -64,7 +68,7 @@ export default function Home() {
             justifyContent={"center"}
             gap={2}
             mt={4}
-            zIndex={10}
+            zIndex={5}
           >
             <Button
               className={"custom-btn"}
@@ -95,7 +99,7 @@ export default function Home() {
               _focus={{ bgColor: "transparent", color: "white", textDecor: "none" }}
               rightIcon={<FaArrowRight className={"external-link-icon custom-transition-default"} />}
             >
-            Just get my resume
+              Just get my resume
             </Button>
           </Flex>
         </Flex>
@@ -105,7 +109,7 @@ export default function Home() {
           alignItems={"center"}
           justifyContent={"center"}
           gap={8}
-          zIndex={10}
+          zIndex={5}
         >
           <Link
             className={"main-icon-link"}
@@ -147,6 +151,11 @@ export default function Home() {
       </Flex>
       <Flex
         as={"main"}
+        className={"min-h-screen p-8"}
+        bgColor={"spaceBg"}
+        flexDir={"column"}
+        alignItems={"center"}
+        zIndex={10}
       >
         <MyNav />
         <About />
