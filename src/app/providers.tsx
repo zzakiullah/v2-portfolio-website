@@ -16,6 +16,17 @@ const scheherazade_new = Scheherazade_New({
 const theme = extendTheme({
     colors: {
         zz: {
+            purpleGray: {
+                100: "#7A687F",
+                200: "#88778D",
+                300: "#97869B",
+                400: "#A595A9",
+                500: "#B4A5B8",
+                600: "#C2B6C6",
+                700: "#D1C7D4",
+                800: "#E0D9E2",
+                900: "#EFECF0",
+            },
             spaceBg: "#0c0717",
             textGray: "#c2b6c6",
         },

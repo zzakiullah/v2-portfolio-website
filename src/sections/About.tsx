@@ -14,20 +14,28 @@ export default function About() {
             className={"w-full"}
             flexDir={"row"}
         >
-            <ProgressBar
-                color={""}
-                icon={<MdOutlineFace />}
-            />
+            <Flex
+                w={["220px"]}
+            >
+                <ProgressBar
+                    color={""}
+                    circleColor={""}
+                    lineColor={""}
+                    icon={<MdOutlineFace />}
+                />
+            </Flex>
             <Flex
                 flexDir={"column"}
                 flexGrow={1}
                 alignItems={"start"}
                 justifyContent={"center"}
+                mt={["4rem"]}
             >
                 <Heading
                     as="h2"
                     color={"white"}
                     fontWeight={"medium"}
+                    fontSize={["4xl"]}
                 >
                     About me
                 </Heading>

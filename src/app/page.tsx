@@ -45,7 +45,7 @@ export default function Home() {
           <Heading
             as={"h1"}
             color={"white"}
-            fontSize={["4xl", "5xl", "5xl", "6xl", "7xl", "8xl"]}
+            fontSize={["4xl", "5xl", "6xl", "7xl", "7xl", "8xl"]}
             fontWeight={"semibold"}
             textAlign={"center"}
           >
@@ -59,7 +59,10 @@ export default function Home() {
             Welcome to my space. Feel free to&nbsp;
             <Box
               as={"button"}
-              className={"secret-btn"}
+              className={"secret-btn custom-transition-default"}
+              color={"white"}
+              _hover={{ color: "purple.200" }}
+              _focus={{ color: "purple.200" }}
             >
               click things
             </Box>
@@ -175,26 +178,40 @@ export default function Home() {
       </Flex>
       <Flex
         as={"main"}
-        className={"min-h-screen p-8"}
+        className={"min-h-screen px-8 py-48"}
         bgColor={"zz.spaceBg"}
         flexDir={"column"}
         alignItems={"center"}
         zIndex={10}
+        px={["2rem"]}
+        py={["12rem"]}
       >
         <MyNav />
         <Flex
           className={"w-full"}
           flexDir={"row"}
+          gap={12}
+          // border="1px solid red"
         >
-          <ProgressBar
-            color={""}
-            icon={<></>}
-          />
+          <Flex
+            flexDir={"column"}
+            alignItems={"end"}
+            w={["160px"]}
+          >
+            <ProgressBar
+              color={""}
+              circleColor={""}
+              lineColor={""}
+            />
+          </Flex>
           <Flex
             flexDir={"column"}
             alignItems={"start"}
             justifyContent={"center"}
-            flexGrow={1}
+            gap={2}
+            my={[2]}
+            // w={["1000px"]}
+            // border="1px solid blue"
           >
             <Heading
               as={"h2"}
@@ -202,26 +219,42 @@ export default function Home() {
               fontWeight={"medium"}
               color={"white"}
             >
-              Before you ask...
+              Now, before you ask...
             </Heading>
             <Text
-              display={"inline-flex"}
               fontSize={["3xl"]}
               color={"zz.textGray"}
             >
-              You can call me &quot;Zoo-lay-ka&quot; or&nbsp;
-              <Flex
+              It&apos;s pronounced&nbsp;
+              <Box
                 as={"button"}
+                className={"custom-transition-default"}
                 fontFamily={"arabic"}
-                flexDir={"row"}
                 textDecoration={"underline"}
                 textDecorationStyle={"dotted"}
-                alignItems={"center"}
-                gap={2}
+                color={"white"}
+                _hover={{ color: "purple.200" }}
+                _focus={{ color: "purple.200" }}
               >
-                زُلَيْخَة
-                <MdVolumeUp />
+                <Flex
+                  as={"span"}
+                  flexDir={"row"}
+                  alignItems={"center"}
+                  gap={2}
+                >
+                  زُلَيْخَة
+                  <MdVolumeUp />
+                </Flex>
+              </Box>
+              &nbsp;but you can just call me&nbsp;
+              <Flex
+                as={"span"}
+                display={"inline"}
+                color={"white"}
+              >
+                &quot;Zoo-lay-ka&quot;
               </Flex>
+              &nbsp;if that&apos;s easier. 🙂
             </Text>
           </Flex>
         </Flex>
