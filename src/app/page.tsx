@@ -1,11 +1,10 @@
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileLines, FaArrowRight } from "react-icons/fa6";
-import { MdVolumeUp } from "react-icons/md";
 
 import MyNav from "@/components/MyNav";
 import MyFooter from "@/components/MyFooter";
-import ProgressBar from "@/components/ProgressBar";
 
+import Intro from "@/sections/Intro";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
 import Experience from "@/sections/Experience";
@@ -79,15 +78,16 @@ export default function Home() {
           >
             <Button
               className={"custom-btn"}
-              w={["100%", "auto"]}
-              fontSize={["sm", "md", "md", "lg"]}
-              px={[3, 3, 3, 4]}
-              py={[4, 4, 4, 5]}
-              border={"2px solid white"}
-              bgColor={"white"}
-              color={"black"}
-              _hover={{ bgColor: "white", color: "black" }}
-              _focus={{ bgColor: "white", color: "black" }}
+              w={styles.mainBtn.width}
+              fontSize={styles.mainBtn.fontSize}
+              px={styles.mainBtn.paddingX}
+              py={styles.mainBtn.paddingY}
+              borderWidth={styles.mainBtn.borderWidth}
+              borderColor={styles.mainBtn.colorPrimary}
+              bgColor={styles.mainBtn.colorPrimary}
+              color={styles.mainBtn.colorText}
+              _hover={styles.mainBtn.hoverPrimary}
+              _focus={styles.mainBtn.hoverPrimary}
             >
               <Flex
                 as="span"
@@ -106,15 +106,16 @@ export default function Home() {
               href={"#"}
               isExternal
               className={"custom-btn"}
-              w={["100%", "auto"]}
-              fontSize={["sm", "md", "md", "lg"]}
-              px={[3, 3, 3, 4]}
-              py={[4, 4, 4, 5]}
-              border={"2px solid white"}
-              bgColor={"transparent"}
-              color={"white"}
-              _hover={{ bgColor: "transparent", color: "white", textDecor: "none" }}
-              _focus={{ bgColor: "transparent", color: "white", textDecor: "none" }}
+              w={styles.mainBtn.width}
+              fontSize={styles.mainBtn.fontSize}
+              px={styles.mainBtn.paddingX}
+              py={styles.mainBtn.paddingY}
+              borderWidth={styles.mainBtn.borderWidth}
+              borderColor={styles.mainBtn.colorSecondary}
+              bgColor={styles.mainBtn.bgSecondary}
+              color={styles.mainBtn.colorText}
+              _hover={styles.mainBtn.hoverSecondary}
+              _focus={styles.mainBtn.hoverSecondary}
             >
               <Flex
                 as="span"
@@ -187,77 +188,7 @@ export default function Home() {
         py={["12rem"]}
       >
         <MyNav />
-        <Flex
-          className={"w-full"}
-          flexDir={"row"}
-          gap={12}
-          // border="1px solid red"
-        >
-          <Flex
-            flexDir={"column"}
-            alignItems={"end"}
-            w={["160px"]}
-          >
-            <ProgressBar
-              color={""}
-              circleColor={""}
-              lineColor={""}
-            />
-          </Flex>
-          <Flex
-            flexDir={"column"}
-            alignItems={"start"}
-            justifyContent={"center"}
-            gap={2}
-            my={[2]}
-            // w={["1000px"]}
-            // border="1px solid blue"
-          >
-            <Heading
-              as={"h2"}
-              fontSize={["7xl"]}
-              fontWeight={"medium"}
-              color={"white"}
-            >
-              Now, before you ask...
-            </Heading>
-            <Text
-              fontSize={["3xl"]}
-              color={"zz.textGray"}
-            >
-              It&apos;s pronounced&nbsp;
-              <Box
-                as={"button"}
-                className={"custom-transition-default"}
-                fontFamily={"arabic"}
-                textDecoration={"underline"}
-                textDecorationStyle={"dotted"}
-                color={"white"}
-                _hover={{ color: "purple.200" }}
-                _focus={{ color: "purple.200" }}
-              >
-                <Flex
-                  as={"span"}
-                  flexDir={"row"}
-                  alignItems={"center"}
-                  gap={2}
-                >
-                  زُلَيْخَة
-                  <MdVolumeUp />
-                </Flex>
-              </Box>
-              &nbsp;but you can just call me&nbsp;
-              <Flex
-                as={"span"}
-                display={"inline"}
-                color={"white"}
-              >
-                &quot;Zoo-lay-ka&quot;
-              </Flex>
-              &nbsp;if that&apos;s easier. 🙂
-            </Text>
-          </Flex>
-        </Flex>
+        <Intro />
         <About />
         <Skills />
         <Experience />
@@ -268,3 +199,31 @@ export default function Home() {
     </>
   );
 }
+
+const styles = {
+  mainBtn: {
+    width: ["100%", "auto"],
+    fontSize: ["sm", "md", "md", "lg"],
+    paddingX: [3, 3, 3, 4],
+    paddingY: [4, 4, 4, 5],
+    borderWidth: "2px",
+    bgSecondary: "transparent",
+    colorPrimary: "purple.600",
+    colorPrimaryAccent: "purple.500",
+    colorSecondary: "purple.300",
+    colorSecondaryAccent: "purple.200",
+    colorText: "white",
+    hoverPrimary: {
+      bgColor: "purple.500",
+      borderColor: "purple.500",
+      color: "white"
+    },
+    hoverSecondary: {
+      bgColor: "transparent",
+      color: "white",
+      textDecor: "none",
+      borderColor: "purple.200",
+      boxShadow: "inset 0 1px 0 #d6bcfa, inset 0 -1px 0 #d6bcfa, inset 1px 0 0 #d6bcfa, inset -1px 0 0 #d6bcfa",
+    },
+  },
+};
