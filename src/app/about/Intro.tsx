@@ -5,6 +5,7 @@ import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 import { MdVolumeUp } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
 
+import useScrollDirection from "@/hooks/useScrollDirection";
 import ProgressBar from "@/components/ProgressBar";
 
 export default function Intro() {
@@ -12,10 +13,12 @@ export default function Intro() {
 
     const { enterCount } = useInViewport(
         ref,
-        { rootMargin: "-50px" },
+        { rootMargin: "-40% 0% -40% 0%" },
         { disconnectOnLeave: false },
         {},
     );
+
+    const { scrollDirection } = useScrollDirection();
 
     return (
         <Flex
@@ -31,9 +34,9 @@ export default function Intro() {
                 w={["160px"]}
             >
                 <ProgressBar
-                    color={""}
                     circleColor={""}
-                    lineColor={""}
+                    lineStartColor={""}
+                    lineEndColor={""}
                 />
             </Flex>
             <Flex

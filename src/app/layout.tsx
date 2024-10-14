@@ -5,7 +5,10 @@ import { Providers } from "./providers";
 import MyNav from "@/components/MyNav";
 
 export const metadata: Metadata = {
-  title: "Zulaikha Zakiullah",
+  title: {
+    template: "%s | Zulaikha Zakiullah",
+    default: "Zulaikha Zakiullah",
+  },
   description: "Personal website of Zulaikha Zakiullah",
 };
 

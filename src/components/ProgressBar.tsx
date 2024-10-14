@@ -1,23 +1,32 @@
 "use client";
 
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useRef, useEffect, useState } from "react";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
+import { useInViewport } from "react-in-viewport";
 
 import useScrollDirection from "@/hooks/useScrollDirection";
 
 interface ProgressBarProps {
-    color: string;
     circleColor: string;
-    lineColor: string;
+    lineStartColor: string;
+    lineEndColor: string;
     icon?: ReactElement;
 };
 
 export default function ProgressBar({
-    color,
     circleColor,
-    lineColor,
+    lineStartColor,
+    lineEndColor,
     icon,
 }: ProgressBarProps) {
+    const ref = useRef(null);
+
+    const { enterCount } = useInViewport(
+        ref,
+        { rootMargin: "-40% 0% -40% 0%" },
+        { disconnectOnLeave: false },
+        {},
+    );
 
     const { scrollDirection, scrollY } = useScrollDirection();
 
@@ -27,7 +36,7 @@ export default function ProgressBar({
         >
             {icon ? (
                 <Box>
-
+                    {icon}
                 </Box>
             ) : (
                 <Box

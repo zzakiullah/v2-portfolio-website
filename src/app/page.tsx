@@ -1,21 +1,22 @@
+import NextLink from "next/link";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileLines, FaArrowRight } from "react-icons/fa6";
 
 import MyNav from "@/components/MyNav";
 import MyFooter from "@/components/MyFooter";
 
-import Intro from "@/sections/Intro";
-import About from "@/sections/About";
-import Skills from "@/sections/Skills";
-import Experience from "@/sections/Experience";
-import Projects from "@/sections/Projects";
-import Contact from "@/sections/Contact";
+// import Intro from "@/app/about/Intro";
+// import About from "@/sections/About";
+// import Skills from "@/sections/Skills";
+// import Experience from "@/sections/Experience";
+// import Projects from "@/sections/Projects";
+// import Contact from "@/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Flex
-        as={"header"}
+        as={"main"}
         className={"min-h-screen p-8"}
         flexDir={"column"}
         alignItems={"center"}
@@ -77,6 +78,8 @@ export default function Home() {
             zIndex={5}
           >
             <Button
+              as={NextLink}
+              href={"/about"}
               className={"custom-btn"}
               w={styles.mainBtn.width}
               fontSize={styles.mainBtn.fontSize}
@@ -98,7 +101,7 @@ export default function Home() {
                 gap={2}
               >
                 <Flex as="span">Get to know me</Flex>
-                <FaArrowRight className={"go-down-icon custom-transition-default"} />
+                <FaArrowRight className={"external-link-icon custom-transition-default"} />
               </Flex>
             </Button>
             <Button
@@ -177,7 +180,7 @@ export default function Home() {
           </Link>
         </Flex>
       </Flex>
-      <Flex
+      {/* <Flex
         as={"main"}
         className={"min-h-screen px-8 py-48"}
         bgColor={"zz.spaceBg"}
@@ -195,7 +198,7 @@ export default function Home() {
         <Projects />
         <Contact />
         <MyFooter />
-      </Flex>
+      </Flex> */}
     </>
   );
 }

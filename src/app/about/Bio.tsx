@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { Flex, Heading, Text, Link, Image } from "@chakra-ui/react";
 import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
+import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
 
-export default function About() {
+export default function Bio() {
 
     return (
         <Flex
@@ -15,12 +16,12 @@ export default function About() {
             flexDir={"row"}
         >
             <Flex
-                w={["220px"]}
+                w={["160px"]}
             >
                 <ProgressBar
-                    color={""}
                     circleColor={""}
-                    lineColor={""}
+                    lineStartColor={""}
+                    lineEndColor={""}
                     icon={<MdOutlineFace />}
                 />
             </Flex>
