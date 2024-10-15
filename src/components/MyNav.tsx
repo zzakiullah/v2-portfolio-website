@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
 import { Twirl as Hamburger } from "hamburger-react";
 import {
@@ -22,12 +23,15 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 export default function MyNav() {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
+    const pathname = usePathname();
+
     const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
+        (pathname !== "/") &&
         <Flex
             as={"nav"}
-            position={"sticky"}
+            position={"fixed"}
         >
             <List>
                 <ListItem>

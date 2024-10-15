@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: "Projects",
 };
 
-export default function About() {
+export default function Projects() {
 
     return (
         <Flex

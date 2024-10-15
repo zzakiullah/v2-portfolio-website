@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
-    title: "Experience",
+    title: "Work",
 };
 
-export default function About() {
+export default function Work() {
 
     return (
         <Flex
