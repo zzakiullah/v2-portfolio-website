@@ -8,28 +8,28 @@ import MyHeader from "@/components/MyHeader";
 import MyNav from "@/components/MyNav";
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Zulaikha Zakiullah",
-    default: "Zulaikha Zakiullah",
-  },
-  description: "Personal website of Zulaikha Zakiullah",
+    title: {
+        template: "%s | Zulaikha Zakiullah",
+        default: "Zulaikha Zakiullah",
+    },
+    description: "Personal website of Zulaikha Zakiullah",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <GoogleAnalytics />
-      <body>
-        <Providers>
-          <MyHeader />
-          <MyNav />
-          {children}
-        </Providers>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <GoogleAnalytics />
+            <body>
+                <Providers>
+                    <MyHeader />
+                    <MyNav />
+                    {children}
+                </Providers>
+            </body>
+        </html>
+    );
 }

@@ -28,16 +28,8 @@ export default function Intro() {
             gap={12}
             // border="1px solid red"
         >
-            <Flex
-                flexDir={"column"}
-                alignItems={"end"}
-                w={["160px"]}
-            >
-                <ProgressBar
-                    circleColor={""}
-                    lineStartColor={""}
-                    lineEndColor={""}
-                />
+            <Flex flexDir={"column"} alignItems={"end"} w={["160px"]}>
+                <ProgressBar circleColor={""} lineStartColor={""} lineEndColor={""} />
             </Flex>
             <Flex
                 className={"custom-transition-default"}
@@ -46,22 +38,14 @@ export default function Intro() {
                 justifyContent={"center"}
                 gap={2}
                 my={[2]}
-                opacity={(enterCount > 0) ? 1 : 0.2}
+                opacity={enterCount > 0 ? 1 : 0.2}
                 // w={["1000px"]}
                 // border="1px solid blue"
             >
-                <Heading
-                    as={"h2"}
-                    fontSize={["7xl"]}
-                    fontWeight={"medium"}
-                    color={"white"}
-                >
+                <Heading as={"h2"} fontSize={["6xl"]} fontWeight={"medium"} color={"white"}>
                     Now, before you ask...
                 </Heading>
-                <Text
-                    fontSize={["3xl"]}
-                    color={"zz.textGray"}
-                >
+                <Text fontSize={["3xl"]} color={"zz.textGray"}>
                     It&apos;s pronounced&nbsp;
                     <Box
                         as={"button"}
@@ -73,22 +57,13 @@ export default function Intro() {
                         _hover={{ color: "purple.200" }}
                         _focus={{ color: "purple.200" }}
                     >
-                        <Flex
-                            as={"span"}
-                            flexDir={"row"}
-                            alignItems={"center"}
-                            gap={2}
-                        >
+                        <Flex as={"span"} flexDir={"row"} alignItems={"center"} gap={2}>
                             زُلَيْخَة
                             <MdVolumeUp />
                         </Flex>
                     </Box>
                     &nbsp;but you can just call me&nbsp;
-                    <Flex
-                        as={"span"}
-                        display={"inline"}
-                        color={"white"}
-                    >
+                    <Flex as={"span"} display={"inline"} color={"white"} whiteSpace={"nowrap"}>
                         &quot;Zoo-lay-ka&quot;
                     </Flex>
                     &nbsp;if that&apos;s easier. 🙂

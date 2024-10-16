@@ -7,8 +7,8 @@ function getWindowDimensions() {
 
 export default function useWindowDimensions() {
     const [windowDimensions, setWindowDimensions] = useState<{
-        width: undefined | number,
-        height: undefined | number,
+        width: undefined | number;
+        height: undefined | number;
     }>({
         width: undefined,
         height: undefined,

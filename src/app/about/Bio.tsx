@@ -9,15 +9,9 @@ import { useInViewport } from "react-in-viewport";
 import ProgressBar from "@/components/ProgressBar";
 
 export default function Bio() {
-
     return (
-        <Flex
-            className={"w-full"}
-            flexDir={"row"}
-        >
-            <Flex
-                w={["160px"]}
-            >
+        <Flex className={"w-full"} flexDir={"row"}>
+            <Flex w={["160px"]}>
                 <ProgressBar
                     circleColor={""}
                     lineStartColor={""}
@@ -32,17 +26,10 @@ export default function Bio() {
                 justifyContent={"center"}
                 mt={["4rem"]}
             >
-                <Heading
-                    as="h2"
-                    color={"white"}
-                    fontWeight={"medium"}
-                    fontSize={["4xl"]}
-                >
+                <Heading as="h2" color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
                     About me
                 </Heading>
-                <Text>
-                    I ...
-                </Text>
+                <Text>I ...</Text>
             </Flex>
         </Flex>
     );

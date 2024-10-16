@@ -16,8 +16,7 @@ const useScrollDirection = () => {
             const scrollY = window.scrollY;
 
             if (Math.abs(scrollY - prevScrollY.current) >= THRESHOLD) {
-                const newScrollDirection =
-                    scrollY > prevScrollY.current ? "down" : "up";
+                const newScrollDirection = scrollY > prevScrollY.current ? "down" : "up";
                 setScrollDirection(newScrollDirection);
                 prevScrollY.current = scrollY > 0 ? scrollY : 0;
                 setScrollY(scrollY > 0 ? scrollY : 0);

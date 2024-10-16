@@ -6,7 +6,6 @@ export const metadata: Metadata = {
 };
 
 export default function Projects() {
-
     return (
         <Flex
             as={"main"}
@@ -17,8 +16,6 @@ export default function Projects() {
             zIndex={10}
             px={["2rem"]}
             py={["12rem"]}
-        >
-            
-        </Flex>
+        ></Flex>
     );
 }

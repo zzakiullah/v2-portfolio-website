@@ -6,7 +6,6 @@ export const metadata: Metadata = {
 };
 
 export default function Work() {
-
     return (
         <Flex
             as={"main"}
@@ -17,8 +16,6 @@ export default function Work() {
             zIndex={10}
             px={["2rem"]}
             py={["12rem"]}
-        >
-            
-        </Flex>
+        ></Flex>
     );
 }

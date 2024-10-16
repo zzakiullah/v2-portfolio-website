@@ -17,7 +17,7 @@ const useWeatherInfo = () => {
         Snowfall = "🌨️",
         Snowflake = "❄️",
         Fog = "🌫️",
-    };
+    }
 
     enum MoonEmojis {
         New = "🌑",
@@ -28,7 +28,7 @@ const useWeatherInfo = () => {
         WaningGibbous = "🌖",
         LastQuarter = "🌗",
         WaningCrescent = "🌘",
-    };
+    }
 
     // (weatherCode: number, isDay: boolean)
     const getEmoji = (weatherCode: number, isDay: number) => {
@@ -89,84 +89,77 @@ const useWeatherInfo = () => {
     const getJulianDate = () => {
         TzDatabase.init(tzData);
         const time = now(zone("America/Toronto")).unixUtcMillis();
-        return (time / 86400000) + 2440587.5;
-    }
-    
+        return time / 86400000 + 2440587.5;
+    };
+
     const normalize = (value: number) => {
         value = value - Math.floor(value);
         if (value < 0) {
             value = value + 1;
         }
         return value;
-    }
+    };
 
     const getLunarAgePercent = () => {
         return normalize((getJulianDate() - 2451550.1) / LUNAR_MONTH);
-    }
+    };
 
     const getLunarAge = () => {
         const percent = getLunarAgePercent();
-        const age = percent * LUNAR_MONTH;  return age;
-    }
+        const age = percent * LUNAR_MONTH;
+        return age;
+    };
 
     const getMoonPhase = () => {
         const lunarAge = getLunarAge();
         if (lunarAge < 1.84566) {
             return MoonEmojis.New;
-        }
-        else if (lunarAge < 5.53699) {
+        } else if (lunarAge < 5.53699) {
             return MoonEmojis.WaxingCrescent;
-        }
-        else if (lunarAge < 9.22831) {
+        } else if (lunarAge < 9.22831) {
             return MoonEmojis.FirstQuarter;
-        }
-        else if (lunarAge < 12.91963) {
+        } else if (lunarAge < 12.91963) {
             return MoonEmojis.WaxingGibbous;
-        }
-        else if (lunarAge < 16.61096) {
+        } else if (lunarAge < 16.61096) {
             return MoonEmojis.Full;
-        }
-        else if (lunarAge < 20.30228) {
+        } else if (lunarAge < 20.30228) {
             return MoonEmojis.WaningGibbous;
-        }
-        else if (lunarAge < 23.99361) {
+        } else if (lunarAge < 23.99361) {
             return MoonEmojis.LastQuarter;
-        }
-        else if (lunarAge < 27.68493) {
+        } else if (lunarAge < 27.68493) {
             return MoonEmojis.WaningCrescent;
         }
         return MoonEmojis.New;
     };
 
     const lat = process.env.NEXT_PUBLIC_WEATHER_LAT ?? 0,
-          lon = process.env.NEXT_PUBLIC_WEATHER_LON ?? 0;
-    
+        lon = process.env.NEXT_PUBLIC_WEATHER_LON ?? 0;
+
     const params = {
-        "latitude": lat,
-        "longitude": lon,
-        "current": ["is_day", "weather_code"],
-        "timezone": "America/New_York",
-        "forecast_days": 1
+        latitude: lat,
+        longitude: lon,
+        current: ["is_day", "weather_code"],
+        timezone: "America/New_York",
+        forecast_days: 1,
     };
     const url = "https://api.open-meteo.com/v1/forecast";
 
     useEffect(() => {
-        const fetchWeatherData = async() => {
+        const fetchWeatherData = async () => {
             const responses = await fetchWeatherApi(url, params),
-                  response = responses[0],
-                  current = response.current()!,
-                  isDay = current.variables(0)!.value(), // current.variables(0)!.value() === 1 ? true : false
-                  weatherCode = current.variables(1)!.value();
+                response = responses[0],
+                current = response.current()!,
+                isDay = current.variables(0)!.value(), // current.variables(0)!.value() === 1 ? true : false
+                weatherCode = current.variables(1)!.value();
             // Check value at night
             console.log(`isDay: ${isDay}, weatherCode: ${weatherCode}`);
             setWeatherEmoji(getEmoji(weatherCode, isDay));
             setFetchingWeatherData(false);
         };
-        fetchWeatherData()
-            .catch((error) => {
-                console.error(error);
-                setFetchingWeatherData(false);
-            });
+        fetchWeatherData().catch((error) => {
+            console.error(error);
+            setFetchingWeatherData(false);
+        });
     }, []);
 
     return { weatherEmoji, fetchingWeatherData };

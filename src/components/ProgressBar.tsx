@@ -11,7 +11,7 @@ interface ProgressBarProps {
     lineStartColor: string;
     lineEndColor: string;
     icon?: ReactElement;
-};
+}
 
 export default function ProgressBar({
     circleColor,
@@ -31,13 +31,9 @@ export default function ProgressBar({
     const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
-        <Flex
-            flexDir={"column"}
-        >
+        <Flex flexDir={"column"}>
             {icon ? (
-                <Box>
-                    {icon}
-                </Box>
+                <Box>{icon}</Box>
             ) : (
                 <Box
                     bgColor={"transparent"}
