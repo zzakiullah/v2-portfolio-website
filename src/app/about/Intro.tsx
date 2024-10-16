@@ -18,7 +18,7 @@ export default function Intro() {
         {},
     );
 
-    const { scrollDirection } = useScrollDirection();
+    const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
         <Flex

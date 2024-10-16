@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import {
+    Box,
     Flex,
-    Link,
     Skeleton,
     Breadcrumb,
     BreadcrumbItem,
@@ -15,33 +15,39 @@ import { TzDatabase, now, zone } from "timezonecomplete";
 import tzData from "tzdata";
 
 import useWeatherInfo from "@/hooks/useWeatherInfo";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
+// import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 export default function MyHeader() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [currentTime, setCurrentTime] = useState<string>("");
+    const [currentTime, setCurrentTime] = useState<string>("00:00");
 
     const calculateCurrentTime = () => {
-        TzDatabase.init(tzData);
         const dtNow = now(zone("America/Toronto"));
         return dtNow.format("HH:mm");
     };
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        TzDatabase.init(tzData);
+
+        const intervalId = setInterval(() => {
             setCurrentTime(calculateCurrentTime());
         }, 1000);
 
         setCurrentTime(calculateCurrentTime());
-        setIsLoading(false);
 
-        return () => clearTimeout(timer);
+        return () => clearInterval(intervalId);
     }, []);
 
     const pathname = usePathname();
 
     const { weatherEmoji, fetchingWeatherData } = useWeatherInfo();
-    const { width } = useWindowDimensions();
+    // const { width } = useWindowDimensions();
+
+    useEffect(() => {
+        if (!fetchingWeatherData) {
+            setIsLoading(false);   
+        }
+    }, [fetchingWeatherData]);
 
     return (
         (pathname !== "/") &&
@@ -51,7 +57,6 @@ export default function MyHeader() {
             alignItems={"center"}
             justifyContent={"center"}
             position={"fixed"}
-            py={4}
             top={0}
             left={0}
             right={0}
@@ -62,49 +67,67 @@ export default function MyHeader() {
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 gap={4}
+                px={4}
+                py={4}
+                borderBottomColor={"zz.textGray"}
+                borderBottomWidth={"1px"}
             >
                 <Breadcrumb
-                    color={"white"}
+                    color={styles.header.color}
+                    fontFamily={styles.header.fontFamily}
+                    fontSize={styles.header.fontSize}
+                    fontWeight={styles.header.fontWeight}
                     separator={
                         <Flex
                             as={"span"}
                             color={"zz.textGray"}
-                            fontFamily={"heading"}
-                            fontSize={["xl"]}
-                            fontWeight={["medium"]}
                         >
                             /
                         </Flex>}
                 >
-                    <BreadcrumbItem
-                        fontFamily={"heading"}
-                        fontSize={["xl"]}
-                        fontWeight={["medium"]}
-                    >
+                    <BreadcrumbItem>
                         <BreadcrumbLink as={NextLink} href={"/"}>
-                            {(width && width >= 640) ? "Zulaikha Zakiullah" : "Zulaikha"}
+                            <Box as={"span"} className={"flex sm:hidden"}>
+                                Zulaikha
+                            </Box>
+                            <Box as={"span"} className={"hidden sm:flex"}>
+                                Zulaikha Zakiullah
+                            </Box>
                         </BreadcrumbLink>
                     </BreadcrumbItem>
-                    <BreadcrumbItem
-                        isCurrentPage
-                        fontFamily={"heading"}
-                        fontSize={["xl"]}
-                        fontWeight={["medium"]}
-                    >
+                    <BreadcrumbItem isCurrentPage>
                         <BreadcrumbLink>
                             {`${pathname.charAt(1).toUpperCase()}${pathname.slice(2)}`}
                         </BreadcrumbLink>
                     </BreadcrumbItem>
                 </Breadcrumb>
-                <Flex
-                    color={"white"}
-                    fontFamily={"heading"}
-                    fontSize={["xl"]}
-                    fontWeight={["medium"]}
+                <Skeleton
+                    isLoaded={!isLoading}
+                    display={"flex"}
+                    flexDirection={"row"}
+                    alignItems={"center"}
+                    justifyContent={"end"}
+                    width={["150px"]}
                 >
-                    {weatherEmoji} {currentTime} EST
-                </Flex>
+                    <Flex
+                        color={styles.header.color}
+                        fontFamily={styles.header.fontFamily}
+                        fontSize={styles.header.fontSize}
+                        fontWeight={styles.header.fontWeight}
+                    >
+                        {weatherEmoji}&ensp;{currentTime}&ensp;EST
+                    </Flex>
+                </Skeleton>
             </Flex>
         </Flex>
     );
 }
+
+const styles = {
+    header: {
+        color: "white",
+        fontFamily: "heading",
+        fontSize: ["xl"],
+        fontWeight: ["medium"],
+    },
+};

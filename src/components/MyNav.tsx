@@ -6,26 +6,22 @@ import { usePathname } from "next/navigation";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
 import { Twirl as Hamburger } from "hamburger-react";
 import {
-    MdHome,
+    // MdHome,
     MdFace,
     MdBusinessCenter,
     MdFolderOpen,
     MdChat,
-    MdOutlineHome,
+    // MdOutlineHome,
     MdOutlineFace,
     MdOutlineBusinessCenter,
     MdOutlineFolderOpen,
     MdOutlineChat,
 } from "react-icons/md";
 
-import useScrollDirection from "@/hooks/useScrollDirection";
-
 export default function MyNav() {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
     const pathname = usePathname();
-
-    const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
         (pathname !== "/") &&

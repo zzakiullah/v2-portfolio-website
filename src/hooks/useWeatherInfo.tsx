@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { TzDatabase, now, zone } from "timezonecomplete";
 import tzData from "tzdata";
 import { fetchWeatherApi } from "openmeteo";
 
 const useWeatherInfo = () => {
-    const [weatherEmoji, setWeatherEmoji] = useState<string>("");
+    const [weatherEmoji, setWeatherEmoji] = useState<string>("☀️");
     const [fetchingWeatherData, setFetchingWeatherData] = useState<boolean>(true);
 
     enum WeatherEmojis {
@@ -31,6 +30,7 @@ const useWeatherInfo = () => {
         WaningCrescent = "🌘",
     };
 
+    // (weatherCode: number, isDay: boolean)
     const getEmoji = (weatherCode: number, isDay: number) => {
         switch (weatherCode) {
             case 0:
@@ -155,8 +155,9 @@ const useWeatherInfo = () => {
             const responses = await fetchWeatherApi(url, params),
                   response = responses[0],
                   current = response.current()!,
-                  isDay = current.variables(0)!.value(),
+                  isDay = current.variables(0)!.value(), // current.variables(0)!.value() === 1 ? true : false
                   weatherCode = current.variables(1)!.value();
+            // Check value at night
             console.log(`isDay: ${isDay}, weatherCode: ${weatherCode}`);
             setWeatherEmoji(getEmoji(weatherCode, isDay));
             setFetchingWeatherData(false);
