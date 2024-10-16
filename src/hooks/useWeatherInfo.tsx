@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { now, zone } from "timezonecomplete";
 
 const useWeatherInfo = () => {
     const [weatherEmoji, setWeatherEmoji] = useState<string>("");
@@ -65,8 +66,57 @@ const useWeatherInfo = () => {
         }
     };
 
+    const LUNAR_MONTH = 29.530588853;
+
+    const getJulianDate = () => {
+        const time = now(zone("America/Toronto")).unixUtcMillis();
+        return (time / 86400000) + 2440587.5;
+    }
+    
+    const normalize = (value: number) => {
+        value = value - Math.floor(value);
+        if (value < 0) {
+            value = value + 1;
+        }
+        return value;
+    }
+
+    const getLunarAgePercent = () => {
+        return normalize((getJulianDate() - 2451550.1) / LUNAR_MONTH);
+    }
+
+    const getLunarAge = () => {
+        const percent = getLunarAgePercent();
+        const age = percent * LUNAR_MONTH;  return age;
+    }
+
     const getMoonPhase = () => {
-        return "";
+        const lunarAge = getLunarAge();
+        if (lunarAge < 1.84566) {
+            return MoonEmojis.New;
+        }
+        else if (lunarAge < 5.53699) {
+            return MoonEmojis.WaxingCrescent;
+        }
+        else if (lunarAge < 9.22831) {
+            return MoonEmojis.FirstQuarter;
+        }
+        else if (lunarAge < 12.91963) {
+            return MoonEmojis.WaxingGibbous;
+        }
+        else if (lunarAge < 16.61096) {
+            return MoonEmojis.Full;
+        }
+        else if (lunarAge < 20.30228) {
+            return MoonEmojis.WaningGibbous;
+        }
+        else if (lunarAge < 23.99361) {
+            return MoonEmojis.LastQuarter;
+        }
+        else if (lunarAge < 27.68493) {
+            return MoonEmojis.WaningCrescent;
+        }
+        return MoonEmojis.New;
     };
 
     useEffect(() => {

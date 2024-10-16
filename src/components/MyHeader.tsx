@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Flex, Heading, Link, Image, Skeleton } from "@chakra-ui/react";
 import { now, zone } from "timezonecomplete";
 
+import useWeatherInfo from "@/hooks/useWeatherInfo";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 export default function MyHeader() {
@@ -22,11 +23,15 @@ export default function MyHeader() {
             setCurrentTime(calculateCurrentTime());
         }, 1000);
 
+        setCurrentTime(calculateCurrentTime());
+        setIsLoading(false);
+
         return () => clearTimeout(timer);
     }, []);
 
     const pathname = usePathname();
-    
+
+    const { weatherEmoji } = useWeatherInfo();
     const { width } = useWindowDimensions();
 
     return (
@@ -62,7 +67,7 @@ export default function MyHeader() {
                 </Heading>
             </Flex>
             <Flex>
-                {currentTime} EST
+                {weatherEmoji} {currentTime} EST
             </Flex>
         </Flex>
     );
