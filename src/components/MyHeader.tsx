@@ -12,7 +12,7 @@ import useWeatherInfo from "@/hooks/useWeatherInfo";
 
 export default function MyHeader() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [currentTime, setCurrentTime] = useState<string>("00:00");
+    const [currentTime, setCurrentTime] = useState<string>("--:--");
 
     const calculateCurrentTime = () => {
         const dtNow = now(zone("America/Toronto"));
@@ -49,6 +49,7 @@ export default function MyHeader() {
                 alignItems={"center"}
                 justifyContent={"center"}
                 position={"fixed"}
+                bgColor={"zz.spaceBg"}
                 top={0}
                 left={0}
                 right={0}
@@ -97,7 +98,7 @@ export default function MyHeader() {
                         flexDirection={"row"}
                         alignItems={"center"}
                         justifyContent={"end"}
-                        width={["150px"]}
+                        width={["140px"]}
                     >
                         <Flex
                             color={styles.header.color}

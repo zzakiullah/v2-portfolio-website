@@ -31,6 +31,7 @@ export default function MyNav() {
                 flexDirection={"row"}
                 alignItems={"center"}
                 justifyContent={"center"}
+                bgColor={"zz.spaceBg"}
                 left={0}
                 right={0}
                 bottom={0}
@@ -44,8 +45,8 @@ export default function MyNav() {
                     gap={4}
                     px={4}
                     py={4}
-                    borderTopColor={"zz.textGray"}
-                    borderTopWidth={"1px"}
+                    // borderTopColor={"zz.textGray"}
+                    // borderTopWidth={"1px"}
                 >
                     {/* <ListItem>
                     <Link
