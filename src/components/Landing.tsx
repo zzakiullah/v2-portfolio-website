@@ -31,7 +31,7 @@ export default function Landing() {
       <Flex
         as={"main"}
         className={"min-h-screen"}
-        flexDir={"column"}
+        flexDirection={"column"}
         alignItems={"center"}
         justifyContent={"space-between"}
         p={8}
@@ -46,12 +46,12 @@ export default function Landing() {
           <Box className="layer"></Box>
         </Box>
         <Flex
-          flexDir={"column"}
+          flexDirection={"column"}
           alignItems={"center"}
           justifyContent={"center"}
         ></Flex>
         <Flex
-          flexDir={"column"}
+          flexDirection={"column"}
           alignItems={"center"}
           justifyContent={"center"}
           zIndex={5}
@@ -84,7 +84,7 @@ export default function Landing() {
           </Text>
           <Flex
             className={"custom-btn-wrapper"}
-            flexDir={["column", "row"]}
+            flexDirection={["column", "row"]}
             alignItems={"center"}
             justifyContent={"center"}
             gap={2}
@@ -109,7 +109,7 @@ export default function Landing() {
               <Flex
                 as="span"
                 w={"100%"}
-                flexDir={"row"}
+                flexDirection={"row"}
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 gap={2}
@@ -137,7 +137,7 @@ export default function Landing() {
               <Flex
                 as="span"
                 w={"100%"}
-                flexDir={"row"}
+                flexDirection={"row"}
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 gap={2}
@@ -152,7 +152,7 @@ export default function Landing() {
         </Flex>
         <Flex
           className={"main-icon-link-wrapper"}
-          flexDir={"row"}
+          flexDirection={"row"}
           alignItems={"center"}
           justifyContent={"center"}
           gap={[6, 8]}

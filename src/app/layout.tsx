@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
 
+import "./globals.css";
 import { Providers } from "./providers";
+
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import MyNav from "@/components/MyNav";
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body>
         <Providers>
           <MyNav />
