@@ -5,7 +5,7 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import {
     Flex,
-    Heading,
+    Link,
     Skeleton,
     Breadcrumb,
     BreadcrumbItem,
@@ -49,54 +49,61 @@ export default function MyHeader() {
             as={"header"}
             flexDirection={"row"}
             alignItems={"center"}
-            justifyContent={"space-between"}
+            justifyContent={"center"}
             position={"fixed"}
+            py={4}
             top={0}
             left={0}
             right={0}
-            zIndex={5}
-            gap={4}
         >
-            <Breadcrumb
-                color={"white"}
-                separator={
-                    <Flex
-                        as={"span"}
-                        color={"zz.textGray"}
+            <Flex
+                width={["95%", "95%", "90%", "85%", "80%", "1280px"]}
+                flexDirection={"row"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                gap={4}
+            >
+                <Breadcrumb
+                    color={"white"}
+                    separator={
+                        <Flex
+                            as={"span"}
+                            color={"zz.textGray"}
+                            fontFamily={"heading"}
+                            fontSize={["xl"]}
+                            fontWeight={["medium"]}
+                        >
+                            /
+                        </Flex>}
+                >
+                    <BreadcrumbItem
                         fontFamily={"heading"}
                         fontSize={["xl"]}
                         fontWeight={["medium"]}
                     >
-                        /
-                    </Flex>}
-            >
-                <BreadcrumbItem
+                        <BreadcrumbLink as={NextLink} href={"/"}>
+                            {(width && width >= 640) ? "Zulaikha Zakiullah" : "Zulaikha"}
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem
+                        isCurrentPage
+                        fontFamily={"heading"}
+                        fontSize={["xl"]}
+                        fontWeight={["medium"]}
+                    >
+                        <BreadcrumbLink>
+                            {`${pathname.charAt(1).toUpperCase()}${pathname.slice(2)}`}
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+                <Flex
+                    color={"white"}
                     fontFamily={"heading"}
                     fontSize={["xl"]}
                     fontWeight={["medium"]}
                 >
-                    <BreadcrumbLink as={NextLink} href={"/"}>
-                        {(width && width >= 640) ? "Zulaikha Zakiullah" : "Zulaikha"}
-                    </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbItem
-                    isCurrentPage
-                    fontFamily={"heading"}
-                    fontSize={["xl"]}
-                    fontWeight={["medium"]}
-                >
-                    <BreadcrumbLink as={NextLink} href={"/"}>
-                        {`${pathname.charAt(1).toUpperCase()}${pathname.slice(2)}`}
-                    </BreadcrumbLink>
-                </BreadcrumbItem>
-            </Breadcrumb>
-            <Flex
-                color={"white"}
-                fontFamily={"heading"}
-                fontSize={["xl"]}
-                fontWeight={["medium"]}
-            >
-                {weatherEmoji} {currentTime} EST
+                    {weatherEmoji} {currentTime} EST
+                </Flex>
             </Flex>
         </Flex>
     );
