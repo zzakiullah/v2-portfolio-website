@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import MyHeader from "@/components/MyHeader";
 import MyNav from "@/components/MyNav";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
       <GoogleAnalytics />
       <body>
         <Providers>
+          <MyHeader />
           <MyNav />
           {children}
         </Providers>

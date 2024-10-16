@@ -17,11 +17,13 @@
     "framer-motion": "^11.5.4",
     "hamburger-react": "^2.5.1",
     "next": "14.2.4",
+    "openmeteo": "^1.1.4",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",
     "react-in-viewport": "^1.0.0-beta.2",
-    "timezonecomplete": "^5.13.1"
+    "timezonecomplete": "^5.13.1",
+    "tzdata": "^1.0.42"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { now, zone } from "timezonecomplete";
+import { TzDatabase, now, zone } from "timezonecomplete";
+import tzData from "tzdata";
+import { fetchWeatherApi } from "openmeteo";
 
 const useWeatherInfo = () => {
     const [weatherEmoji, setWeatherEmoji] = useState<string>("");
+    const [fetchingWeatherData, setFetchingWeatherData] = useState<boolean>(true);
 
     enum WeatherEmojis {
         ClearSun = "☀️",
@@ -12,8 +15,9 @@ const useWeatherInfo = () => {
         Clouds = "☁️",
         Rain = "🌧️",
         Thunderstorm = "⛈️",
-        Snow = "❄️",
-        Mist = "🌫️",
+        Snowfall = "🌨️",
+        Snowflake = "❄️",
+        Fog = "🌫️",
     };
 
     enum MoonEmojis {
@@ -27,40 +31,54 @@ const useWeatherInfo = () => {
         WaningCrescent = "🌘",
     };
 
-    const weatherApiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-    const lat = process.env.NEXT_PUBLIC_WEATHER_LAT,
-          lon = process.env.NEXT_PUBLIC_WEATHER_LON;
-    const exclude = "minutely,hourly,daily,alerts";
-
-    const getEmoji = (iconId: string) => {
-        switch (iconId) {
-            case "01n":
-            case "02n":
+    const getEmoji = (weatherCode: number, isDay: number) => {
+        switch (weatherCode) {
+            case 0:
+            case 1:
+                if (isDay) {
+                    return WeatherEmojis.ClearSun;
+                }
                 return getMoonPhase();
-            case "01d":
-                return WeatherEmojis.ClearSun;
-            case "02d":
-                return WeatherEmojis.PartialClouds;
-            case "10d":
-                return WeatherEmojis.Drizzle;
-            case "03d":
-            case "03n":
-            case "04d":
-            case "04n":
+            case 2:
+                if (isDay) {
+                    return WeatherEmojis.PartialClouds;
+                }
+                return getMoonPhase();
+            case 3:
                 return WeatherEmojis.Clouds;
-            case "09d":
-            case "09n":
-            case "10n":
+            case 45:
+            case 48:
+                return WeatherEmojis.Fog;
+            case 51:
+            case 53:
+            case 55:
+                if (isDay) {
+                    return WeatherEmojis.Drizzle;
+                }
+                return getMoonPhase();
+            case 56:
+            case 57:
+            case 66:
+            case 67:
+                return WeatherEmojis.Snowflake;
+            case 61:
+            case 63:
+            case 65:
+            case 80:
+            case 81:
+            case 82:
                 return WeatherEmojis.Rain;
-            case "11d":
-            case "11n":
+            case 71:
+            case 73:
+            case 75:
+            case 77:
+            case 85:
+            case 86:
+                return WeatherEmojis.Snowfall;
+            case 95:
+            case 96:
+            case 99:
                 return WeatherEmojis.Thunderstorm;
-            case "13d":
-            case "13n":
-                return WeatherEmojis.Snow;
-            case "50d":
-            case "50n":
-                return WeatherEmojis.Mist;
             default:
                 return "";
         }
@@ -69,6 +87,7 @@ const useWeatherInfo = () => {
     const LUNAR_MONTH = 29.530588853;
 
     const getJulianDate = () => {
+        TzDatabase.init(tzData);
         const time = now(zone("America/Toronto")).unixUtcMillis();
         return (time / 86400000) + 2440587.5;
     }
@@ -119,18 +138,37 @@ const useWeatherInfo = () => {
         return MoonEmojis.New;
     };
 
+    const lat = process.env.NEXT_PUBLIC_WEATHER_LAT ?? 0,
+          lon = process.env.NEXT_PUBLIC_WEATHER_LON ?? 0;
+    
+    const params = {
+        "latitude": lat,
+        "longitude": lon,
+        "current": ["is_day", "weather_code"],
+        "timezone": "America/New_York",
+        "forecast_days": 1
+    };
+    const url = "https://api.open-meteo.com/v1/forecast";
+
     useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${weatherApiKey}`)
-            .then(response => {
-                const iconId = response.data.current.weather.icon;
-                setWeatherEmoji(getEmoji(iconId));
-            })
-            .catch(error => {
-                console.log(error);
+        const fetchWeatherData = async() => {
+            const responses = await fetchWeatherApi(url, params),
+                  response = responses[0],
+                  current = response.current()!,
+                  isDay = current.variables(0)!.value(),
+                  weatherCode = current.variables(1)!.value();
+            console.log(`isDay: ${isDay}, weatherCode: ${weatherCode}`);
+            setWeatherEmoji(getEmoji(weatherCode, isDay));
+            setFetchingWeatherData(false);
+        };
+        fetchWeatherData()
+            .catch((error) => {
+                console.error(error);
+                setFetchingWeatherData(false);
             });
     }, []);
 
-    return { weatherEmoji };
+    return { weatherEmoji, fetchingWeatherData };
 };
 
 export default useWeatherInfo;

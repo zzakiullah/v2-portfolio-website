@@ -3,8 +3,16 @@
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { Flex, Heading, Link, Image, Skeleton } from "@chakra-ui/react";
-import { now, zone } from "timezonecomplete";
+import {
+    Flex,
+    Heading,
+    Skeleton,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+} from "@chakra-ui/react";
+import { TzDatabase, now, zone } from "timezonecomplete";
+import tzData from "tzdata";
 
 import useWeatherInfo from "@/hooks/useWeatherInfo";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
@@ -14,6 +22,7 @@ export default function MyHeader() {
     const [currentTime, setCurrentTime] = useState<string>("");
 
     const calculateCurrentTime = () => {
+        TzDatabase.init(tzData);
         const dtNow = now(zone("America/Toronto"));
         return dtNow.format("HH:mm");
     };
@@ -31,7 +40,7 @@ export default function MyHeader() {
 
     const pathname = usePathname();
 
-    const { weatherEmoji } = useWeatherInfo();
+    const { weatherEmoji, fetchingWeatherData } = useWeatherInfo();
     const { width } = useWindowDimensions();
 
     return (
@@ -39,34 +48,54 @@ export default function MyHeader() {
         <Flex
             as={"header"}
             flexDirection={"row"}
-            alignItems={"space-between"}
-            justifyContent={"center"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
             position={"fixed"}
+            top={0}
+            left={0}
+            right={0}
+            zIndex={5}
+            gap={4}
         >
-            <Flex
-                flexDirection={"row"}
+            <Breadcrumb
+                color={"white"}
+                separator={
+                    <Flex
+                        as={"span"}
+                        color={"zz.textGray"}
+                        fontFamily={"heading"}
+                        fontSize={["xl"]}
+                        fontWeight={["medium"]}
+                    >
+                        /
+                    </Flex>}
             >
-                <Heading>
-                    <Link
-                        as={NextLink}
-                        href={"/"}
-                    >
+                <BreadcrumbItem
+                    fontFamily={"heading"}
+                    fontSize={["xl"]}
+                    fontWeight={["medium"]}
+                >
+                    <BreadcrumbLink as={NextLink} href={"/"}>
                         {(width && width >= 640) ? "Zulaikha Zakiullah" : "Zulaikha"}
-                    </Link>
-                </Heading>
-                <Heading>
-                    /
-                </Heading>
-                <Heading>
-                    <Link
-                        as={NextLink}
-                        href={pathname}
-                    >
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem
+                    isCurrentPage
+                    fontFamily={"heading"}
+                    fontSize={["xl"]}
+                    fontWeight={["medium"]}
+                >
+                    <BreadcrumbLink as={NextLink} href={"/"}>
                         {`${pathname.charAt(1).toUpperCase()}${pathname.slice(2)}`}
-                    </Link>
-                </Heading>
-            </Flex>
-            <Flex>
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
+            <Flex
+                color={"white"}
+                fontFamily={"heading"}
+                fontSize={["xl"]}
+                fontWeight={["medium"]}
+            >
                 {weatherEmoji} {currentTime} EST
             </Flex>
         </Flex>

@@ -16,7 +16,7 @@ export default function About() {
             bgColor={"zz.spaceBg"}
             flexDir={"column"}
             alignItems={"center"}
-            zIndex={10}
+            // zIndex={10}
             px={["2rem"]}
             py={["12rem"]}
         >
