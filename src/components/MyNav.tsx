@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
+import { Flex, Link, List, ListItem, Tooltip } from "@chakra-ui/react";
 import {
     MdAccountCircle,
     MdBusinessCenter,
@@ -35,32 +35,59 @@ export default function MyNav() {
                 bgColor={"zz.spaceBg"}
                 zIndex={1}
                 left={0}
-                right={[0, "auto"]}
-                top={["auto", 0]}
+                right={{ base: 0, md: "auto" }}
+                top={{ base: "auto", md: 0 }}
                 bottom={0}
             >
                 <List
-                    width={["95%", "auto"]}
+                    width={{ base: "95%", md: "auto" }}
                     display={"flex"}
                     flexDirection={["row", "column"]}
                     alignItems={"center"}
                     justifyContent={"center"}
-                    gap={4}
+                    gap={6}
                     px={4}
                     py={4}
+                    position={"relative"}
                 >
                     {navItems.map((item, index) => {
                         return (
                             <ListItem
                                 key={index}
-                                color={styles.listItem.color}
-                                fontSize={styles.listItem.fontSize}
+                                color={"zz.purpleGray.200"}
+                                fontSize={["2xl", "3xl"]}
+                                position={"relative"}
+                                transition={"all 0.2s ease-in-out"}
+                                role={"group"}
                             >
-                                <Link as={NextLink} href={item.href}>
-                                    {pathname === item.href
-                                        ? item.iconSelected
-                                        : item.iconUnselected}
-                                </Link>
+                                <Tooltip
+                                    label={item.label}
+                                    isDisabled={width !== undefined && width < 768}
+                                    placement={"right"}
+                                    hasArrow
+                                    bgColor={"purple.1000"}
+                                    color={"white"}
+                                    fontSize={["xl"]}
+                                    position={"relative"}
+                                    openDelay={100}
+                                    transition={"left 0.1s ease-in-out"}
+                                    left={"0px"}
+                                    gutter={10}
+                                    _groupHover={{ left: "4px" }}
+                                >
+                                    <Link
+                                        as={NextLink}
+                                        href={item.href}
+                                        position={"relative"}
+                                        transition={"all 0.2s ease-in-out"}
+                                        left={"0px"}
+                                        _groupHover={{ color: "white", left: "4px" }}
+                                    >
+                                        {pathname === item.href
+                                            ? item.iconSelected
+                                            : item.iconUnselected}
+                                    </Link>
+                                </Tooltip>
                             </ListItem>
                         );
                     })}
@@ -102,10 +129,3 @@ const navItems = [
         iconUnselected: <MdOutlineChat />,
     },
 ];
-
-const styles = {
-    listItem: {
-        color: "zz.purpleGray.200",
-        fontSize: ["2xl", "3xl"],
-    },
-};
