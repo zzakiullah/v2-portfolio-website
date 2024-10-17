@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
-// import { Twirl as Hamburger } from "hamburger-react";
 import {
     MdAccountCircle,
     MdBusinessCenter,
@@ -18,8 +17,12 @@ import {
     MdOutlineChat,
 } from "react-icons/md";
 
+import useWindowDimensions from "@/hooks/useWindowDimensions";
+
 export default function MyNav() {
     const pathname = usePathname();
+
+    const { width, height } = useWindowDimensions();
 
     return (
         pathname !== "/" && (
@@ -30,13 +33,14 @@ export default function MyNav() {
                 alignItems={"center"}
                 justifyContent={"center"}
                 bgColor={"zz.spaceBg"}
+                zIndex={1}
                 left={0}
                 right={[0, "auto"]}
                 top={["auto", 0]}
                 bottom={0}
             >
                 <List
-                    width={["95%", "95%", "90%", "85%", "80%", "1280px"]}
+                    width={["95%", "auto"]}
                     display={"flex"}
                     flexDirection={["row", "column"]}
                     alignItems={"center"}
@@ -70,38 +74,38 @@ const navItems = [
     {
         label: "About",
         href: "/about",
-        iconSelected: <MdAccountCircle />,
+        iconSelected: <MdAccountCircle className={"nav-selected"} />,
         iconUnselected: <MdOutlineAccountCircle />,
     },
     {
         label: "Work",
         href: "/work",
-        iconSelected: <MdBusinessCenter />,
+        iconSelected: <MdBusinessCenter className={"nav-selected"} />,
         iconUnselected: <MdOutlineBusinessCenter />,
     },
     {
         label: "Projects",
         href: "/projects",
-        iconSelected: <MdFolder />,
+        iconSelected: <MdFolder className={"nav-selected"} />,
         iconUnselected: <MdOutlineFolderOpen />,
     },
     {
         label: "Study",
         href: "/study",
-        iconSelected: <MdSchool />,
+        iconSelected: <MdSchool className={"nav-selected"} />,
         iconUnselected: <MdOutlineSchool />,
     },
     {
         label: "Contact",
         href: "/contact",
-        iconSelected: <MdChat />,
+        iconSelected: <MdChat className={"nav-selected"} />,
         iconUnselected: <MdOutlineChat />,
     },
 ];
 
 const styles = {
     listItem: {
-        color: "white",
-        fontSize: ["3xl"],
+        color: "zz.purpleGray.200",
+        fontSize: ["2xl", "3xl"],
     },
 };

@@ -50,6 +50,7 @@ export default function MyHeader() {
                 justifyContent={"center"}
                 position={"fixed"}
                 bgColor={"zz.spaceBg"}
+                zIndex={5}
                 top={0}
                 left={0}
                 right={0}
