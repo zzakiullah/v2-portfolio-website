@@ -6,21 +6,19 @@ import { usePathname } from "next/navigation";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
 // import { Twirl as Hamburger } from "hamburger-react";
 import {
-    // MdHome,
-    MdFace,
+    MdAccountCircle,
     MdBusinessCenter,
-    MdFolderOpen,
+    MdFolder,
+    MdSchool,
     MdChat,
-    // MdOutlineHome,
-    MdOutlineFace,
+    MdOutlineAccountCircle,
     MdOutlineBusinessCenter,
     MdOutlineFolderOpen,
+    MdOutlineSchool,
     MdOutlineChat,
 } from "react-icons/md";
 
 export default function MyNav() {
-    // const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-
     const pathname = usePathname();
 
     return (
@@ -33,59 +31,77 @@ export default function MyNav() {
                 justifyContent={"center"}
                 bgColor={"zz.spaceBg"}
                 left={0}
-                right={0}
+                right={[0, "auto"]}
+                top={["auto", 0]}
                 bottom={0}
             >
                 <List
                     width={["95%", "95%", "90%", "85%", "80%", "1280px"]}
                     display={"flex"}
-                    flexDirection={"row"}
+                    flexDirection={["row", "column"]}
                     alignItems={"center"}
                     justifyContent={"center"}
                     gap={4}
                     px={4}
                     py={4}
-                    // borderTopColor={"zz.textGray"}
-                    // borderTopWidth={"1px"}
                 >
-                    {/* <ListItem>
-                    <Link
-                        as={NextLink}
-                        href={"/"}
-                    >
-                        Home
-                    </Link>
-                </ListItem> */}
-                    <ListItem>
-                        <Link as={NextLink} href={"/about"}>
-                            {/* About */}
-                            {pathname === "/about" ? <MdFace /> : <MdOutlineFace />}
-                        </Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link as={NextLink} href={"/work"}>
-                            {/* Work */}
-                            {pathname === "/work" ? (
-                                <MdBusinessCenter />
-                            ) : (
-                                <MdOutlineBusinessCenter />
-                            )}
-                        </Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link as={NextLink} href={"/projects"}>
-                            {/* Projects */}
-                            {pathname === "/projects" ? <MdFolderOpen /> : <MdOutlineFolderOpen />}
-                        </Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link as={NextLink} href={"/contact"}>
-                            {/* Contact */}
-                            {pathname === "/contact" ? <MdChat /> : <MdOutlineChat />}
-                        </Link>
-                    </ListItem>
+                    {navItems.map((item, index) => {
+                        return (
+                            <ListItem
+                                key={index}
+                                color={styles.listItem.color}
+                                fontSize={styles.listItem.fontSize}
+                            >
+                                <Link as={NextLink} href={item.href}>
+                                    {pathname === item.href
+                                        ? item.iconSelected
+                                        : item.iconUnselected}
+                                </Link>
+                            </ListItem>
+                        );
+                    })}
                 </List>
             </Flex>
         )
     );
 }
+
+const navItems = [
+    {
+        label: "About",
+        href: "/about",
+        iconSelected: <MdAccountCircle />,
+        iconUnselected: <MdOutlineAccountCircle />,
+    },
+    {
+        label: "Work",
+        href: "/work",
+        iconSelected: <MdBusinessCenter />,
+        iconUnselected: <MdOutlineBusinessCenter />,
+    },
+    {
+        label: "Projects",
+        href: "/projects",
+        iconSelected: <MdFolder />,
+        iconUnselected: <MdOutlineFolderOpen />,
+    },
+    {
+        label: "Study",
+        href: "/study",
+        iconSelected: <MdSchool />,
+        iconUnselected: <MdOutlineSchool />,
+    },
+    {
+        label: "Contact",
+        href: "/contact",
+        iconSelected: <MdChat />,
+        iconUnselected: <MdOutlineChat />,
+    },
+];
+
+const styles = {
+    listItem: {
+        color: "white",
+        fontSize: ["3xl"],
+    },
+};

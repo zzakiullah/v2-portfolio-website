@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 import Intro from "./Intro";
+import Bio from "./Bio";
 
 export const metadata: Metadata = {
     title: "About",
@@ -15,11 +16,11 @@ export default function About() {
             bgColor={"zz.spaceBg"}
             flexDir={"column"}
             alignItems={"center"}
-            // zIndex={10}
             px={["2rem"]}
             py={["12rem"]}
         >
             <Intro />
+            <Bio />
         </Flex>
     );
 }
