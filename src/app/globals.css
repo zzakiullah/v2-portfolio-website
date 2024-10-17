@@ -283,6 +283,39 @@ body {
         0 0 151px #bc13fe;
 }
 
+.nav-marker {
+    transition: all 0.5s cubic-bezier(.87, -.41, .22, 1.36);
+    background-color: white;
+    position: absolute;
+    border-radius: 2px;
+    width: 4px;
+    height: 4px;
+    left: auto;
+    bottom: -8px;
+}
+
+/* Half of icon section width - half of marker width */
+/* 50px/2 - 4px/2 */
+.nav-marker-1 {
+    left: 23px;
+}
+
+.nav-marker-2 {
+    left: 73px;
+}
+
+.nav-marker-3 {
+    left: 123px;
+}
+
+.nav-marker-4 {
+    left: 173px;
+}
+
+.nav-marker-5 {
+    left: 223px;
+}
+
 .nav-selected {
     color: white;
 }
@@ -291,6 +324,36 @@ body {
 @media only screen and (min-width: 640px) {
     .main-icon {
         font-size: 18pt;
+    }
+}
+
+/* md screen */
+@media only screen and (min-width: 768px) {
+    .nav-marker {
+        left: -10px;
+        bottom: auto;
+    }
+
+    /* Half of icon section height - half of marker height */
+    /* 50px/2 - 4px/2 */
+    .nav-marker-1 {
+        top: 23px;
+    }
+
+    .nav-marker-2 {
+        top: 73px;
+    }
+
+    .nav-marker-3 {
+        top: 123px;
+    }
+
+    .nav-marker-4 {
+        top: 173px;
+    }
+
+    .nav-marker-5 {
+        top: 223px;
     }
 }
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { Flex, Link, List, ListItem, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Link, List, ListItem, Tooltip } from "@chakra-ui/react";
 import {
     MdAccountCircle,
     MdBusinessCenter,
@@ -22,6 +22,29 @@ import useWindowDimensions from "@/hooks/useWindowDimensions";
 export default function MyNav() {
     const pathname = usePathname();
 
+    function getMarkerNum(): number {
+        switch (pathname) {
+            case "/about":
+                return 1;
+            case "/work":
+                return 2;
+            case "/projects":
+                return 3;
+            case "/study":
+                return 4;
+            case "/contact":
+                return 5;
+            default:
+                return 0;
+        }
+    }
+
+    const [markerNum, setMarkerNum] = useState<number>(getMarkerNum());
+
+    useEffect(() => {
+        setMarkerNum(getMarkerNum());
+    }, [pathname]);
+
     const { width, height } = useWindowDimensions();
 
     return (
@@ -39,59 +62,65 @@ export default function MyNav() {
                 top={{ base: "auto", md: 0 }}
                 bottom={0}
             >
-                <List
-                    width={{ base: "95%", md: "auto" }}
-                    display={"flex"}
-                    flexDirection={["row", "column"]}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    gap={6}
-                    px={4}
-                    py={4}
-                    position={"relative"}
-                >
-                    {navItems.map((item, index) => {
-                        return (
-                            <ListItem
-                                key={index}
-                                color={"zz.purpleGray.200"}
-                                fontSize={["2xl", "3xl"]}
-                                position={"relative"}
-                                transition={"all 0.2s ease-in-out"}
-                                role={"group"}
-                            >
-                                <Tooltip
-                                    label={item.label}
-                                    isDisabled={width !== undefined && width < 768}
-                                    placement={"right"}
-                                    hasArrow
-                                    bgColor={"purple.1000"}
-                                    color={"white"}
-                                    fontSize={["xl"]}
+                <Box position={"relative"} mx={4} my={4}>
+                    <Box className={`nav-marker nav-marker-${markerNum}`}></Box>
+                    <List
+                        display={"flex"}
+                        flexDirection={{ base: "row", md: "column" }}
+                        alignItems={"center"}
+                        justifyContent={"center"}
+                        position={"relative"}
+                    >
+                        {navItems.map((item, index) => {
+                            return (
+                                <ListItem
+                                    key={index}
+                                    color={"zz.purpleGray.200"}
+                                    fontSize={["2xl", "3xl"]}
                                     position={"relative"}
-                                    openDelay={100}
-                                    transition={"left 0.1s ease-in-out"}
-                                    left={"0px"}
-                                    gutter={10}
-                                    _groupHover={{ left: "4px" }}
+                                    display={"flex"}
+                                    alignItems={"center"}
+                                    justifyContent={"center"}
+                                    width={{ base: "50px", md: "auto" }}
+                                    height={{ base: "auto", md: "50px" }}
                                 >
-                                    <Link
-                                        as={NextLink}
-                                        href={item.href}
-                                        position={"relative"}
-                                        transition={"all 0.2s ease-in-out"}
-                                        left={"0px"}
-                                        _groupHover={{ color: "white", left: "4px" }}
-                                    >
-                                        {pathname === item.href
-                                            ? item.iconSelected
-                                            : item.iconUnselected}
-                                    </Link>
-                                </Tooltip>
-                            </ListItem>
-                        );
-                    })}
-                </List>
+                                    <Box position={"relative"} role={"group"}>
+                                        <Tooltip
+                                            label={item.label}
+                                            isDisabled={width !== undefined && width < 768}
+                                            placement={"right"}
+                                            hasArrow
+                                            bgColor={"purple.1000"}
+                                            color={"white"}
+                                            fontSize={["xl"]}
+                                            position={"relative"}
+                                            openDelay={100}
+                                            gutter={10}
+                                        >
+                                            <Link
+                                                as={NextLink}
+                                                href={item.href}
+                                                position={"relative"}
+                                                transition={"all 0.1s ease-in-out"}
+                                                left={"0px"}
+                                                bottom={"0px"}
+                                                _groupHover={{
+                                                    color: "white",
+                                                    left: { base: "0px", md: "4px" },
+                                                    bottom: { base: "4px", md: "0px" },
+                                                }}
+                                            >
+                                                {pathname === item.href
+                                                    ? item.iconSelected
+                                                    : item.iconUnselected}
+                                            </Link>
+                                        </Tooltip>
+                                    </Box>
+                                </ListItem>
+                            );
+                        })}
+                    </List>
+                </Box>
             </Flex>
         )
     );
