@@ -18,6 +18,12 @@ export default function Intro() {
         {},
     );
 
+    // const audio = new Audio("/assets/zulaikha.mp3");
+
+    // const playAudio = () => {
+    //     audio.play();
+    // };
+
     const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
@@ -28,7 +34,7 @@ export default function Intro() {
             gap={12}
             // border="1px solid red"
         >
-            <Flex flexDir={"column"} alignItems={"end"} w={["160px"]}>
+            <Flex flexDir={"column"} alignItems={"end"} w={["100px"]}>
                 <ProgressBar circleColor={""} lineStartColor={""} lineEndColor={""} />
             </Flex>
             <Flex
@@ -40,15 +46,15 @@ export default function Intro() {
                 my={[2]}
                 opacity={enterCount > 0 ? 1 : 0.2}
                 // w={["1000px"]}
-                // border="1px solid blue"
             >
-                <Heading as={"h2"} fontSize={["6xl"]} fontWeight={"medium"} color={"white"}>
-                    Now, before you ask...
+                <Heading as={"h2"} fontSize={["5xl"]} fontWeight={"medium"} color={"white"}>
+                    In case you&apos;re wondering...
                 </Heading>
                 <Text fontSize={["3xl"]} color={"zz.textGray"}>
                     It&apos;s pronounced&nbsp;
                     <Box
                         as={"button"}
+                        // onClick={playAudio}
                         className={"custom-transition-default"}
                         fontFamily={"arabic"}
                         textDecoration={"underline"}

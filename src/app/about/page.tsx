@@ -12,12 +12,12 @@ export default function About() {
     return (
         <Flex
             as={"main"}
-            className={"min-h-screen px-8 py-48"}
-            bgColor={"zz.spaceBg"}
+            className={"min-h-screen"}
             flexDir={"column"}
             alignItems={"center"}
-            px={["2rem"]}
+            px={["6rem"]}
             py={["12rem"]}
+            gap={16}
         >
             <Intro />
             <Bio />

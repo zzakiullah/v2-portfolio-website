@@ -2,6 +2,7 @@
 
 import { Poppins, Figtree, Scheherazade_New } from "next/font/google";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -53,6 +54,14 @@ const theme = extendTheme({
         lg: "1024px",
         xl: "1280px",
         "2xl": "1536px",
+    },
+    styles: {
+        global: (props: StyleFunctionProps) => ({
+            body: {
+                color: "ffffff",
+                bg: "#0c0717",  // zz.spaceBg
+            },
+        }),
     },
 });
 
