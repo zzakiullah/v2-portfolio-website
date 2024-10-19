@@ -80,13 +80,13 @@ export default function Bio() {
                     ml={[16]}
                 >
                     <ListItem>
+                        ⚡ SoC design for biomedical applications
+                    </ListItem>
+                    <ListItem>
                         🧠 Cost-effective and open-source EEG hardware
                     </ListItem>
                     <ListItem>
                         ✨ Deep learning algorithms for BCIs
-                    </ListItem>
-                    <ListItem>
-                        ⚡ SoC design in relation to bioelectronics
                     </ListItem>
                 </UnorderedList>
                 <Text
