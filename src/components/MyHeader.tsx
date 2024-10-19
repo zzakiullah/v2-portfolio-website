@@ -63,7 +63,7 @@ export default function MyHeader() {
                     gap={4}
                     px={4}
                     py={4}
-                    borderBottomColor={"zz.textGray"}
+                    borderBottomColor={"zz.purpleGray.50"}
                     borderBottomWidth={"1px"}
                 >
                     <Breadcrumb

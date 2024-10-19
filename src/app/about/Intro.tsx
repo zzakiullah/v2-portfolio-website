@@ -34,7 +34,14 @@ export default function Intro() {
             gap={12}
             // border="1px solid red"
         >
-            <Flex flexDir={"column"} alignItems={"end"} w={["100px"]}>
+            <Flex
+                flexDir={"column"}
+                alignItems={"end"}
+                flexBasis={["100px"]}
+                flexGrow={0}
+                flexShrink={0}
+                // border="1px solid red"
+            >
                 <ProgressBar circleColor={""} lineStartColor={""} lineEndColor={""} />
             </Flex>
             <Flex

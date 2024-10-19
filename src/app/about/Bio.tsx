@@ -2,8 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import NextLink from "next/link";
-import { Flex, Heading, Text, Link, Image } from "@chakra-ui/react";
-import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
+import {
+    Flex,
+    Heading,
+    Text,
+    UnorderedList,
+    ListItem,
+    Link,
+    Image
+} from "@chakra-ui/react";
+// import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
@@ -26,12 +34,19 @@ export default function Bio() {
             gap={12}
             // border="1px solid red"
         >
-            <Flex w={["100px"]}>
+            <Flex
+                flexDir={"column"}
+                alignItems={"end"}
+                flexBasis={["100px"]}
+                flexGrow={0}
+                flexShrink={0}
+                // border="1px solid red"
+            >
                 <ProgressBar
                     circleColor={""}
                     lineStartColor={""}
                     lineEndColor={""}
-                    icon={<MdOutlineFace />}
+                    // icon={<MdOutlineFace />}
                 />
             </Flex>
             <Flex      
@@ -54,13 +69,44 @@ export default function Bio() {
                     color={"zz.textGray"}
                     fontSize={["2xl"]}
                 >
-                    I ...
+                    I&apos;m a recent graduate of the University of Waterloo with a BASc in
+                    Electrical Engineering. I have experience in PCB and RTL design, and a
+                    strong background in software development, including full-stack, mobile app,
+                    and firmware development. I&apos;m currently interested in:
                 </Text>
+                <UnorderedList
+                    color={"zz.textGray"}
+                    fontSize={["2xl"]}
+                    ml={[16]}
+                >
+                    <ListItem>
+                        🧠 Cost-effective and open-source EEG hardware
+                    </ListItem>
+                    <ListItem>
+                        ✨ Deep learning algorithms for BCIs
+                    </ListItem>
+                    <ListItem>
+                        ⚡ SoC design in relation to bioelectronics
+                    </ListItem>
+                </UnorderedList>
                 <Text
                     color={"zz.textGray"}
                     fontSize={["2xl"]}
                 >
-                    Aside from that, I ...
+                    Aside from that, I enjoy casual chess, crocheting, and playing video games.
+                    Due to my background, I also grew up learning a variety of languages, including
+                    Arabic, Bengali, and Bahasa Melayu, among others. For more on this, you can
+                    visit my&nbsp;
+                    <Link
+                        as={NextLink}
+                        href={"/study"}
+                        color={"white"}
+                        textDecoration={"underline"}
+                        textDecorationStyle={"dotted"}
+                    >
+                        study
+                    </Link>
+                    .
                 </Text>
             </Flex>
         </Flex>

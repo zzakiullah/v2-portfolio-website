@@ -3,6 +3,7 @@ import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 import Intro from "./Intro";
 import Bio from "./Bio";
+import Skills from "./Skills";
 
 export const metadata: Metadata = {
     title: "About",
@@ -21,6 +22,7 @@ export default function About() {
         >
             <Intro />
             <Bio />
+            <Skills />
         </Flex>
     );
 }
