@@ -9,7 +9,7 @@ import {
     UnorderedList,
     ListItem,
     Link,
-    Image
+    Image,
 } from "@chakra-ui/react";
 // import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
