@@ -63,7 +63,7 @@ export default function Bio() {
                     fontWeight={"medium"}
                     fontSize={["4xl"]}
                 >
-                    More about me
+                    About Me
                 </Heading>
                 <Text
                     color={"zz.textGray"}
