@@ -5,6 +5,8 @@ import {
     Flex,
     Heading,
     Text,
+    Wrap,
+    WrapItem,
     Badge,
     Link,
     Image,
@@ -24,7 +26,6 @@ import {
     FaPhp,
     FaAws,
     FaGitAlt,
-    FaLinux,
     FaJenkins,
     FaDocker,
 } from "react-icons/fa6";
@@ -117,27 +118,33 @@ export default function Skills() {
                 >
                     Hello ...
                 </Text>
-                <Flex>
+                <Wrap>
                     {skills.map((skill, index) => {
                         return (
-                            <Badge
+                            <WrapItem
                                 key={index}
-                                display={"flex"}
-                                flexDirection={"row"}
-                                alignItems={"center"}
-                                justifyContent={"center"}
-                                bgColor={skill.bgColor}
-                                color={skill.color}
-                                fontSize={"lg"}
-                                px={2}
-                                gap={1}
                             >
-                                {skill.icon}
-                                {skill.text}
-                            </Badge>
+                                <Badge
+                                    display={"flex"}
+                                    flexDirection={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"center"}
+                                    bgColor={skill.bgColor}
+                                    color={skill.color}
+                                    fontSize={"lg"}
+                                    fontWeight={"semibold"}
+                                    px={2}
+                                    gap={1}
+                                    whiteSpace={"nowrap"}
+                                    textTransform={"none"}
+                                >
+                                    {skill.icon}
+                                    {skill.text}
+                                </Badge>
+                            </WrapItem>
                         );
                     })}
-                </Flex>
+                </Wrap>
             </Flex>
         </Flex>
     );
@@ -145,192 +152,185 @@ export default function Skills() {
 
 const skills = [
     {
-        icon: <FaPython />,
+        icon: <FaPython color={"#306998"} />,
         text: "Python",
-        bgColor: "",
-        color: "",
+        bgColor: "#ffd43b",
+        color: "black",
         filters: [],
     },
     {
         icon: <BiLogoCPlusPlus />,
         text: "C/C++",
-        bgColor: "",
-        color: "",
+        bgColor: "#004482",
+        color: "white",
         filters: [],
     },
     {
-        icon: <FaJava />,
+        icon: <FaJava color={"#5382a1"} />,
         text: "Java",
-        bgColor: "",
-        color: "",
+        bgColor: "#f89820",
+        color: "black",
         filters: [],
     },
     {
         icon: <FaGem />,
         text: "Ruby",
-        bgColor: "",
-        color: "",
+        bgColor: "#de3f24", // darker: #d51f06
+        color: "white",
         filters: [],
     },
     {
         icon: <BiLogoJavascript />,
         text: "JavaScript",
-        bgColor: "",
-        color: "",
+        bgColor: "#f0db4f",
+        color: "#323330",
         filters: [],
     },
     {
         icon: <BiLogoTypescript />,
         text: "TypeScript",
-        bgColor: "",
-        color: "",
+        bgColor: "#3178c6",
+        color: "white",
         filters: [],
     },
     {
-        icon: <FaHtml5 />,
+        icon: <FaHtml5 />, // #f06529
         text: "HTML",
-        bgColor: "",
-        color: "",
+        bgColor: "#e34c26",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaCss3Alt />,
         text: "CSS",
-        bgColor: "",
-        color: "",
+        bgColor: "#264de4",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaSass />,
         text: "Sass/SCSS",
-        bgColor: "",
-        color: "",
+        bgColor: "#cd6799",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaReact />,
         text: "React",
-        bgColor: "",
-        color: "",
+        bgColor: "#06bcee",
+        color: "#20232a",
         filters: [],
     },
     {
-        icon: <FaVuejs />,
+        icon: <FaVuejs color={"#34495e"} />,
         text: "Vue",
-        bgColor: "",
-        color: "",
+        bgColor: "#41b883",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaAngular />,
         text: "Angular",
-        bgColor: "",
-        color: "",
+        bgColor: "#c3002f",
+        color: "white",
         filters: [],
     },
     {
         icon: <BiLogoTailwindCss />,
         text: "Tailwind CSS",
-        bgColor: "",
-        color: "",
+        bgColor: "#06b6d4",
+        color: "white",
         filters: [],
     },
     {
         icon: <BiLogoRedux />,
         text: "Redux",
-        bgColor: "",
-        color: "",
+        bgColor: "#764abc",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaAndroid />,
         text: "Android",
-        bgColor: "",
-        color: "",
+        bgColor: "#32de84",
+        color: "black",
         filters: [],
     },
     {
         icon: <FaReact />,
         text: "React Native",
-        bgColor: "",
-        color: "",
+        bgColor: "#06bcee",
+        color: "#20232a",
         filters: [],
     },
     {
         icon: <FaNodeJs />,
         text: "Node.js",
-        bgColor: "",
-        color: "",
+        bgColor: "#3c873a",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaPhp />,
         text: "PHP",
-        bgColor: "",
-        color: "",
+        bgColor: "#777bb3",
+        color: "black",
         filters: [],
     },
     {
         icon: <BiLogoPostgresql />,
         text: "PosgreSQL",
-        bgColor: "",
-        color: "",
+        bgColor: "#336791",
+        color: "white",
         filters: [],
     },
     {
         icon: <BiLogoGraphql />,
         text: "GraphQL",
-        bgColor: "",
-        color: "",
+        bgColor: "#e10098",
+        color: "white",
         filters: [],
     },
     {
         icon: <BiLogoFirebase />,
         text: "Firebase",
-        bgColor: "",
-        color: "",
+        bgColor: "#ff9100",
+        color: "black",
         filters: [],
     },
     {
         icon: <BiLogoMongodb />,
         text: "MongoDB",
-        bgColor: "",
-        color: "",
+        bgColor: "#00684a",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaAws />,
         text: "AWS",
-        bgColor: "",
-        color: "",
+        bgColor: "#ff9900",
+        color: "black",
         filters: [],
     },
     {
         icon: <FaGitAlt />,
         text: "Git",
-        bgColor: "",
-        color: "",
-        filters: [],
-    },
-    {
-        icon: <FaLinux />,
-        text: "Linux",
-        bgColor: "",
-        color: "",
+        bgColor: "#f34f29",
+        color: "white",
         filters: [],
     },
     {
         icon: <FaJenkins />,
         text: "Jenkins",
-        bgColor: "",
-        color: "",
+        bgColor: "#f0d6b7",
+        color: "black",
         filters: [],
     },
     {
         icon: <FaDocker />,
         text: "Docker",
-        bgColor: "",
-        color: "",
+        bgColor: "#1d63ed",
+        color: "white",
         filters: [],
     },
 ];
