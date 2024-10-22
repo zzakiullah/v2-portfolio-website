@@ -14,7 +14,6 @@ import {
 import {
     FaPython,
     FaJava,
-    FaGem,
     FaHtml5,
     FaCss3Alt,
     FaSass,
@@ -27,19 +26,37 @@ import {
     FaAws,
     FaGitAlt,
     FaJenkins,
+    FaLinux,
     FaDocker,
+    FaMicrochip,
 } from "react-icons/fa6";
 import {
     BiLogoCPlusPlus,
+    BiLogoGoLang,
     BiLogoJavascript,
     BiLogoTypescript,
     BiLogoTailwindCss,
     BiLogoRedux,
     BiLogoPostgresql,
     BiLogoGraphql,
-    BiLogoFirebase,
     BiLogoMongodb,
+    BiLogoSpringBoot,
+    BiLogoVisualStudio,
+    BiSolidMicrochip,
 } from "react-icons/bi";
+import {
+    SiRuby,
+    SiFirebase,
+    SiKicad,
+    SiAltiumdesigner,
+    SiLtspice,
+    SiStmicroelectronics,
+    SiEspressif,
+    SiProteus,
+    SiAutocad,
+} from "react-icons/si";
+import { TbMathMaxMin } from "react-icons/tb";
+import { GiCircuitry } from "react-icons/gi";
 import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
@@ -57,6 +74,8 @@ export default function Skills() {
         { disconnectOnLeave: false },
         {},
     );
+
+    const [filteredSkills, setFilteredSkills] = useState<SkillFilters[]>([]);
 
     return (
         <Flex
@@ -116,7 +135,7 @@ export default function Skills() {
                     color={"zz.textGray"}
                     fontSize={["2xl"]}
                 >
-                    Hello ...
+                    Displaying {filteredSkills.length} of {skills.length} skills
                 </Text>
                 <Wrap>
                     {skills.map((skill, index) => {
@@ -173,9 +192,23 @@ const skills = [
         filters: [],
     },
     {
-        icon: <FaGem />,
+        icon: <TbMathMaxMin color={"#e76e38"} />,
+        text: "MATLAB",
+        bgColor: "#0076a8",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <SiRuby />,
         text: "Ruby",
-        bgColor: "#de3f24", // darker: #d51f06
+        bgColor: "#d51f06", // lighter: #de3f24, darker: #d51f06
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <BiLogoGoLang />,
+        text: "Go",
+        bgColor: "#00ADD8",
         color: "white",
         filters: [],
     },
@@ -292,7 +325,7 @@ const skills = [
         filters: [],
     },
     {
-        icon: <BiLogoFirebase />,
+        icon: <SiFirebase />,
         text: "Firebase",
         bgColor: "#ff9100",
         color: "black",
@@ -303,6 +336,13 @@ const skills = [
         text: "MongoDB",
         bgColor: "#00684a",
         color: "white",
+        filters: [],
+    },
+    {
+        icon: <BiLogoSpringBoot />,
+        text: "Spring",
+        bgColor: "",
+        color: "",
         filters: [],
     },
     {
@@ -327,9 +367,93 @@ const skills = [
         filters: [],
     },
     {
+        icon: <FaLinux />,
+        text: "Linux",
+        bgColor: "white",
+        color: "black",
+        filters: [],
+    },
+    {
         icon: <FaDocker />,
         text: "Docker",
         bgColor: "#1d63ed",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <BiLogoVisualStudio />,
+        text: "VS Code",
+        bgColor: "#0078d7",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <BiSolidMicrochip />,
+        text: "Verilog",
+        bgColor: "",
+        color: "",
+        filters: [],
+    },
+    {
+        icon: <FaMicrochip />,
+        text: "Verilog",
+        bgColor: "",
+        color: "",
+        filters: [],
+    },
+    {
+        icon: <SiKicad />,
+        text: "KiCad",
+        bgColor: "#314cb0",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <SiAltiumdesigner />,
+        text: "Altium Designer",
+        bgColor: "#d6bc81",
+        color: "#3d3d3d",
+        filters: [],
+    },
+    {
+        icon: <SiLtspice />,
+        text: "LTspice",
+        bgColor: "#910029",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <GiCircuitry color={"#eb1c2e"} />,
+        text: "Cadence",
+        bgColor: "white",
+        color: "#242021",
+        filters: [],
+    },
+    {
+        icon: <SiStmicroelectronics />,
+        text: "STM32",
+        bgColor: "#3bb5e8",
+        color: "#19233e",
+        filters: [],
+    },
+    {
+        icon: <SiEspressif />,
+        text: "ESP32",
+        bgColor: "#e8362d",
+        color: "black",
+        filters: [],
+    },
+    {
+        icon: <SiProteus />,
+        text: "Proteus",
+        bgColor: "#006074",
+        color: "white",
+        filters: [],
+    },
+    {
+        icon: <SiAutocad />,
+        text: "AutoCAD",
+        bgColor: "#770829",
         color: "white",
         filters: [],
     },
