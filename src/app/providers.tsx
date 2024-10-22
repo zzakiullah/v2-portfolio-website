@@ -59,7 +59,7 @@ const theme = extendTheme({
         global: (props: StyleFunctionProps) => ({
             body: {
                 color: "ffffff",
-                bg: "#0c0717",  // zz.spaceBg
+                bg: "#0c0717", // zz.spaceBg
             },
         }),
     },

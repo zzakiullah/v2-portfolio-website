@@ -2,15 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import NextLink from "next/link";
-import {
-    Flex,
-    Heading,
-    Text,
-    UnorderedList,
-    ListItem,
-    Link,
-    Image,
-} from "@chakra-ui/react";
+import { Flex, Heading, Text, UnorderedList, ListItem, Link, Image } from "@chakra-ui/react";
 // import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
 
@@ -49,7 +41,7 @@ export default function Bio() {
                     // icon={<MdOutlineFace />}
                 />
             </Flex>
-            <Flex      
+            <Flex
                 className={"custom-transition-default"}
                 flexDir={"column"}
                 alignItems={"start"}
@@ -57,44 +49,23 @@ export default function Bio() {
                 gap={2}
                 opacity={enterCount > 0 ? 1 : 0.2}
             >
-                <Heading
-                    as={"h2"}
-                    color={"white"}
-                    fontWeight={"medium"}
-                    fontSize={["4xl"]}
-                >
+                <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
                     About Me
                 </Heading>
-                <Text
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
-                >
+                <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     I&apos;m a recent graduate of the University of Waterloo with a BASc in
-                    Electrical Engineering. I have experience in PCB and RTL design, and a
-                    strong background in software development, including full-stack, mobile app,
-                    and firmware development. I&apos;m currently interested in:
+                    Electrical Engineering. I have experience in PCB and RTL design, and a strong
+                    background in software development, including full-stack, mobile app, and
+                    firmware development. I&apos;m currently interested in:
                 </Text>
-                <UnorderedList
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
-                    ml={[16]}
-                >
-                    <ListItem>
-                        ⚡ SoC design for biomedical applications
-                    </ListItem>
-                    <ListItem>
-                        🧠 Cost-effective and open-source EEG hardware
-                    </ListItem>
-                    <ListItem>
-                        ✨ Deep learning algorithms for BCIs
-                    </ListItem>
+                <UnorderedList color={"zz.textGray"} fontSize={["2xl"]} ml={[16]}>
+                    <ListItem>⚡ SoC design for biomedical applications</ListItem>
+                    <ListItem>🧠 Cost-effective and open-source EEG hardware</ListItem>
+                    <ListItem>✨ Deep learning algorithms for BCIs</ListItem>
                 </UnorderedList>
-                <Text
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
-                >
-                    Aside from that, I enjoy casual chess, crocheting, and playing video games.
-                    Due to my background, I also grew up learning a variety of languages, including
+                <Text color={"zz.textGray"} fontSize={["2xl"]}>
+                    Aside from that, I enjoy casual chess, crocheting, and playing video games. Due
+                    to my background, I also grew up learning a variety of languages, including
                     Arabic, Bengali, and Bahasa Melayu, among others. For more on this, you can
                     visit my&nbsp;
                     <Link

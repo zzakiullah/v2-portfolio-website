@@ -8,8 +8,10 @@ import {
     Wrap,
     WrapItem,
     Badge,
-    Link,
-    Image,
+    Stack,
+    Radio,
+    RadioGroup,
+    Select,
 } from "@chakra-ui/react";
 import {
     FaPython,
@@ -62,8 +64,20 @@ import { useInViewport } from "react-in-viewport";
 import ProgressBar from "@/components/ProgressBar";
 
 enum SkillFilters {
+    Languages = "1",
+    FrontEnd = "2",
+    BackEnd = "3",
+    Tools = "4",
+    Technologies = "5",
+}
 
-};
+const skillFilterNames = [
+    { label: "Languages", value: "1" },
+    { label: "Front End", value: "2" },
+    { label: "Back End", value: "3" },
+    { label: "Tools", value: "4" },
+    { label: "Technologies", value: "5" },
+];
 
 export default function Skills() {
     const ref = useRef(null);
@@ -75,23 +89,19 @@ export default function Skills() {
         {},
     );
 
+    const [radioValue, setRadioValue] = useState<string>("0");
     const [filteredSkills, setFilteredSkills] = useState<SkillFilters[]>([]);
 
+    useEffect(() => {}, []);
+
     return (
-        <Flex
-            ref={ref}
-            className={"w-full"}
-            flexDir={"row"}
-            gap={12}
-            // border="1px solid red"
-        >
+        <Flex ref={ref} className={"w-full"} flexDir={"row"} gap={12}>
             <Flex
                 flexDir={"column"}
                 alignItems={"end"}
                 flexBasis={["100px"]}
                 flexGrow={0}
                 flexShrink={0}
-                // border="1px solid red"
             >
                 <ProgressBar
                     circleColor={""}
@@ -100,7 +110,7 @@ export default function Skills() {
                     // icon={<MdOutlineFace />}
                 />
             </Flex>
-            <Flex      
+            <Flex
                 className={"custom-transition-default"}
                 flexDir={"column"}
                 alignItems={"start"}
@@ -108,41 +118,64 @@ export default function Skills() {
                 gap={2}
                 opacity={enterCount > 0 ? 1 : 0.2}
             >
-                <Heading
-                    as={"h2"}
-                    color={"white"}
-                    fontWeight={"medium"}
-                    fontSize={["4xl"]}
-                >
+                <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
                     Skills &amp; Technologies
                 </Heading>
-                <Text
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
-                >
+                <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     I&apos;ve built up a diverse skillset over the years, spanning multiple
                     technical disciplines, and am in constant pursuit of learning more. If
-                    there&apos;s a certain subset of skills you&apos;re interested in checking
-                    out, use the filter below.
+                    there&apos;s a certain subset of skills you&apos;re interested in checking out,
+                    use the filter below.
                 </Text>
-                <Text
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
+                <RadioGroup
+                    onChange={setRadioValue}
+                    value={radioValue}
+                    display={{ base: "none", md: "" }}
                 >
-                    Hello ...
-                </Text>
-                <Text
-                    color={"zz.textGray"}
-                    fontSize={["2xl"]}
+                    <Stack direction={"row"}>
+                        <Radio key={0} value={"0"} colorScheme={"purple"} size={"md"}>
+                            All
+                        </Radio>
+                        {skillFilterNames.map((filter, index) => {
+                            return (
+                                <Radio
+                                    key={index + 1}
+                                    value={filter.value}
+                                    colorScheme={"purple"}
+                                    size={"md"}
+                                >
+                                    {filter.label}
+                                </Radio>
+                            );
+                        })}
+                    </Stack>
+                </RadioGroup>
+                <Select
+                    onChange={(event) => {
+                        setRadioValue(event.target.value);
+                    }}
+                    value={radioValue}
+                    size={"md"}
+                    display={{ base: "", md: "none" }}
                 >
+                    <option key={0} value={"0"}>
+                        All
+                    </option>
+                    {skillFilterNames.map((filter, index) => {
+                        return (
+                            <option key={index + 1} value={filter.value}>
+                                {filter.label}
+                            </option>
+                        );
+                    })}
+                </Select>
+                <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     Displaying {filteredSkills.length} of {skills.length} skills
                 </Text>
                 <Wrap>
                     {skills.map((skill, index) => {
                         return (
-                            <WrapItem
-                                key={index}
-                            >
+                            <WrapItem key={index}>
                                 <Badge
                                     display={"flex"}
                                     flexDirection={"row"}

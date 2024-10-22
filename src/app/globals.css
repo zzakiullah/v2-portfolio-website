@@ -267,7 +267,7 @@ body {
 }
 
 .nav-marker {
-    transition: all 0.5s cubic-bezier(.87, -.41, .22, 1.36);
+    transition: all 0.5s cubic-bezier(0.87, -0.41, 0.22, 1.36);
     background-color: white;
     position: absolute;
     border-radius: 2px;
