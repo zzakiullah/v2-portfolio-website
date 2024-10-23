@@ -1,22 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-    Flex,
-    Heading,
-    Text,
-    Wrap,
-    WrapItem,
-    Badge,
-    Stack,
-    Radio,
-    RadioGroup,
-    Select,
-} from "@chakra-ui/react";
+import { Flex, Heading, Text, Wrap, WrapItem, Badge, Select } from "@chakra-ui/react";
 import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
-import { tags, TagTypes, tagTypeNames } from "@/constants/tags";
+import { tags, ITag, tagTypeNames } from "@/constants/tags";
 
 export default function Skills() {
     const ref = useRef(null);
@@ -29,9 +18,13 @@ export default function Skills() {
     );
 
     const [selectValue, setSelectValue] = useState<string>("0");
-    const [filteredTags, setFilteredTags] = useState<TagTypes[]>([]);
+    const [filteredTags, setFilteredTags] = useState<ITag[]>(tags);
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        setFilteredTags(
+            selectValue === "0" ? tags : tags.filter((tag) => tag.filters.includes(selectValue)),
+        );
+    }, [selectValue]);
 
     return (
         <Flex ref={ref} className={"w-full"} flexDir={"row"} gap={12}>

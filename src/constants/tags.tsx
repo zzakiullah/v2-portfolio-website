@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import {
     FaPython,
     FaJava,
@@ -80,7 +81,15 @@ const tagTypeNames = [
     { icon: <FcSupport />, label: "Tools", value: TagTypes.Tools },
 ];
 
-const tags = [
+interface ITag {
+    icon: ReactElement;
+    text: string;
+    bgColor: string;
+    color: string;
+    filters: string[];
+}
+
+const tags: ITag[] = [
     {
         icon: <FaPython color={"#306998"} />,
         text: "Python",
@@ -365,7 +374,7 @@ const tags = [
         icon: <SiAmd />,
         text: "Vivado",
         bgColor: "#dce04a",
-        color: "#6a6a6c",
+        color: "black",
         filters: [TagTypes.RtlDesign, TagTypes.Tools],
     },
     {
@@ -377,4 +386,4 @@ const tags = [
     },
 ];
 
-export { tags, TagTypes, tagTypeNames };
+export { tags, type ITag, tagTypeNames };
