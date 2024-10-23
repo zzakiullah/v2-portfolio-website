@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
+import WorkItem from "./WorkItem";
+import { workData } from "./workData";
+
 export const metadata: Metadata = {
     title: "Work",
 };
@@ -15,6 +18,10 @@ export default function Work() {
             alignItems={"center"}
             px={["2rem"]}
             py={["12rem"]}
-        ></Flex>
+        >
+            {workData.map((data, index) => {
+                return <WorkItem key={index} />;
+            })}
+        </Flex>
     );
 }
