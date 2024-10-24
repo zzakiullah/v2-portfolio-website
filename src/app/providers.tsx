@@ -33,6 +33,7 @@ const theme = extendTheme({
                 900: "#efecf0",
             },
             spaceBg: "#0c0717",
+            inputBg: "#302c3a",
             textGray: "#c2b6c6",
         },
     },

@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Flex, Heading, Text, Wrap, WrapItem, Badge, Select } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { useRef } from "react";
+import { Flex, Heading, Text, Wrap, WrapItem, Badge } from "@chakra-ui/react";
 import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
-import { tags, ITag, tagTypeNames } from "@/constants/tags";
+import tags from "@/constants/tags";
 
 export default function Skills() {
     const ref = useRef(null);
@@ -16,15 +17,6 @@ export default function Skills() {
         { disconnectOnLeave: false },
         {},
     );
-
-    const [selectValue, setSelectValue] = useState<string>("0");
-    const [filteredTags, setFilteredTags] = useState<ITag[]>(tags);
-
-    useEffect(() => {
-        setFilteredTags(
-            selectValue === "0" ? tags : tags.filter((tag) => tag.filters.includes(selectValue)),
-        );
-    }, [selectValue]);
 
     return (
         <Flex ref={ref} className={"w-full"} flexDir={"row"} gap={12}>
@@ -56,32 +48,19 @@ export default function Skills() {
                 <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     I&apos;ve built up a diverse skillset over the years, spanning multiple
                     technical disciplines, and am in constant pursuit of learning more. If
-                    there&apos;s a certain subset of skills you&apos;re interested in checking out,
-                    use the filter below.
+                    you&apos;re interested in seeing how a particular skill was used, click
+                    on it to see my relevant experience and projects relating to it.
                 </Text>
-                <Select
-                    onChange={(event) => {
-                        setSelectValue(event.target.value);
-                    }}
-                    value={selectValue}
-                    size={"md"}
-                >
-                    {tagTypeNames.map((tagType, index) => {
-                        return (
-                            <option key={index} value={tagType.value}>
-                                {tagType.label}
-                            </option>
-                        );
-                    })}
-                </Select>
-                <Text color={"zz.textGray"} fontSize={["2xl"]}>
-                    Displaying {filteredTags.length} of {tags.length} skills
-                </Text>
-                <Wrap>
+                <Wrap mt={4} spacing={0}>
                     {tags.map((tag, index) => {
                         return (
-                            <WrapItem key={index}>
+                            <WrapItem className={"skill-badge-wrapper custom-transition-default"} key={index} p={1}>
                                 <Badge
+                                    // as={NextLink}
+                                    as={"button"}
+                                    onClick={() => console.log(`Clicked ${tag.text}`)}
+                                    className={"skill-badge custom-transition-default"}
+                                    cursor={"pointer"}
                                     display={"flex"}
                                     flexDirection={"row"}
                                     alignItems={"center"}
