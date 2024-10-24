@@ -2,6 +2,12 @@
 
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
-export default function WorkItem() {
+interface WorkItemProps {
+
+};
+
+export default function WorkItem({
+    
+}: WorkItemProps) {
     return <Flex></Flex>;
 }
