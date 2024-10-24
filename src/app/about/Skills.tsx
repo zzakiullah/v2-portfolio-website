@@ -6,7 +6,7 @@ import { Flex, Heading, Text, Wrap, WrapItem, Badge } from "@chakra-ui/react";
 import { useInViewport } from "react-in-viewport";
 
 import ProgressBar from "@/components/ProgressBar";
-import tags from "@/constants/tags";
+import { tags } from "@/constants/tags";
 
 export default function Skills() {
     const ref = useRef(null);

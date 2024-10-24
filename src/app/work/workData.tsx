@@ -1,9 +1,13 @@
+import { Tag } from "@/constants/tags";
+
 const workData = [
     {
         company: "Silicon Bioelectronics Laboratory",
         position: "Research Assistant",
         duration: "Jan 2024 - Apr 2024",
-        description: <></>,
+        description: <>
+
+        </>,
         logo: "",
         blurLogo: "",
         url: "https://uwaterloo.ca/silicon-bioelectronics-laboratory",

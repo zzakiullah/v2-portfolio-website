@@ -54,6 +54,51 @@ interface ITag {
     color: string;
 }
 
+enum Tag {
+    Python = 0,
+    CPlusPlus,
+    Java,
+    MATLAB,
+    Ruby,
+    Go,
+    JavaScript,
+    TypeScript,
+    HTML,
+    CSS,
+    Sass,
+    React,
+    Vue,
+    Angular,
+    Tailwind,
+    Redux,
+    Android,
+    ReactNative,
+    Node,
+    PHP,
+    PostgreSQL,
+    GraphQL,
+    Firebase,
+    MongoDB,
+    Spring,
+    AWS,
+    Git,
+    Jenkins,
+    Linux,
+    Docker,
+    VSCode,
+    VHDL,
+    Verilog,
+    KiCad,
+    AltiumDesigner,
+    LTspice,
+    Cadence,
+    STM32,
+    ESP32,
+    Proteus,
+    Vivado,
+    AutoCAD,
+};
+
 const tags: ITag[] = [
     {
         icon: <FaPython color={"#306998"} />,
@@ -309,4 +354,4 @@ const tags: ITag[] = [
     },
 ];
 
-export default tags;
+export { Tag, tags };
