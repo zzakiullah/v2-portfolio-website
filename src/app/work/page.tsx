@@ -12,15 +12,26 @@ export default function Work() {
     return (
         <Flex
             as={"main"}
-            className={"min-h-screen px-8 py-48"}
+            className={"min-h-screen"}
             bgColor={"zz.spaceBg"}
             flexDir={"column"}
             alignItems={"center"}
-            px={["2rem"]}
+            px={["6rem"]}
             py={["12rem"]}
         >
             {workData.map((data, index) => {
-                return <WorkItem key={index} />;
+                return (
+                    <WorkItem
+                        key={index}
+                        company={data.company}
+                        positions={data.positions}
+                        description={data.description}
+                        logo={data.logo}
+                        blurLogo={data.blurLogo}
+                        url={data.url}
+                        tags={data.tags}
+                    />
+                );
             })}
         </Flex>
     );

@@ -1,9 +1,5 @@
 import { Tag } from "@/constants/tags";
 
-const projectData = [
-    {
-        
-    }
-];
+const projectData = [{}];
 
 export { projectData };
