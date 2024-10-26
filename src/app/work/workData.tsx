@@ -17,8 +17,8 @@ const workData = [
         ],
         description: (
             <>
-                For my final co-op term, I worked as a Hardware Designer at the Silicon
-                Bioelectronics Laboratory under the University of Waterloo, and later continued as
+                For my sixth and final co-op term, I worked as a Hardware Designer at the Silicon
+                Bioelectronics Laboratory at the University of Waterloo, and later continued as
                 an Undergraduate Research Assistant while studying full-time. My work primarily
                 involved bring-up of our team&apos;s custom-designed IC for non-invasive continuous
                 glucose and ketone monitoring. After electrical testing was complete, I collaborated
@@ -43,7 +43,15 @@ const workData = [
                 duration: "Jan 2022 - Apr 2022",
             },
         ],
-        description: <>For ...</>,
+        description: (
+            <>
+                For two terms, I worked as an Undergraduate Research Assistant at the Composite
+                Biomaterial Systems Laboratory at the University of Waterloo while studying
+                full-time. My main work involved developing an algorithm to precisely map the
+                progression of crack tips in cortical bone over time, given collected bone sample
+                strain data.
+            </>
+        ),
         logo: "university_of_waterloo.png",
         blurLogo: "university_of_waterloo_blur.png",
         url: "https://uwaterloo.ca/waterloo-composite-biomaterial-systems-lab",
@@ -110,7 +118,9 @@ const workData = [
         ],
         description: (
             <>
-                For my second co-op term, I came back to Ford
+                For my second co-op term, I came back to Ford as a Software Developer. This time, I
+                worked on the infotainment systems under the product development team, where I
+                developed APIs, unit test suites, and test Android apps.
             </>
         ),
         logo: "ford_motor_company.png",
@@ -148,8 +158,8 @@ const workData = [
         ],
         description: (
             <>
-                Right ...
-                
+                During summer school, I worked as a tutor under the school board for high school
+                students in English, math, physics, and chemistry.
             </>
         ),
         logo: "gecdsb.jpg",
