@@ -48,13 +48,17 @@ export default function Skills() {
                 <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     I&apos;ve built up a diverse skillset over the years, spanning multiple
                     technical disciplines, and am in constant pursuit of learning more. If
-                    you&apos;re interested in seeing how a particular skill was used, click
-                    on it to see my relevant experience and projects relating to it.
+                    you&apos;re interested in seeing how a particular skill was used, click on it to
+                    see my relevant experience and projects relating to it.
                 </Text>
                 <Wrap mt={4} spacing={0}>
                     {tags.map((tag, index) => {
                         return (
-                            <WrapItem className={"skill-badge-wrapper custom-transition-default"} key={index} p={1}>
+                            <WrapItem
+                                className={"skill-badge-wrapper custom-transition-default"}
+                                key={index}
+                                p={1}
+                            >
                                 <Badge
                                     // as={NextLink}
                                     as={"button"}

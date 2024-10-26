@@ -97,7 +97,7 @@ enum Tag {
     Proteus,
     Vivado,
     AutoCAD,
-};
+}
 
 const tags: ITag[] = [
     {

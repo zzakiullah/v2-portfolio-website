@@ -309,7 +309,9 @@ body {
 }
 
 .chakra-wrap__list:has(.skill-badge-wrapper:hover) > .skill-badge-wrapper:not(:hover),
-.chakra-wrap__list:has(> .skill-badge-wrapper > .skill-badge:focus) > .skill-badge-wrapper > .skill-badge:not(:focus) {
+.chakra-wrap__list:has(> .skill-badge-wrapper > .skill-badge:focus)
+    > .skill-badge-wrapper
+    > .skill-badge:not(:focus) {
     opacity: 0.4;
 }
 
