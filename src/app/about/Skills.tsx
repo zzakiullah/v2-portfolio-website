@@ -19,7 +19,7 @@ export default function Skills() {
     );
 
     return (
-        <Flex ref={ref} className={"w-full"} flexDir={"row"} gap={12}>
+        <Flex ref={ref} width={"100%"} flexDir={"row"} gap={12}>
             <Flex
                 flexDir={"column"}
                 alignItems={"end"}

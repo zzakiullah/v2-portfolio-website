@@ -18,8 +18,8 @@ const workData = [
         description: (
             <>
                 For my sixth and final co-op term, I worked as a Hardware Designer at the Silicon
-                Bioelectronics Laboratory at the University of Waterloo, and later continued as
-                an Undergraduate Research Assistant while studying full-time. My work primarily
+                Bioelectronics Laboratory at the University of Waterloo, and later continued as an
+                Undergraduate Research Assistant while studying full-time. My work primarily
                 involved bring-up of our team&apos;s custom-designed IC for non-invasive continuous
                 glucose and ketone monitoring. After electrical testing was complete, I collaborated
                 with another lab to perform electrochemical tests on the chip, including cyclic
@@ -94,9 +94,9 @@ const workData = [
                 <Link href={"https://easthma.ca"} isExternal>
                     eAMS (electronic asthma management system)
                 </Link>
-                , a clinical decision support system for asthma that recommends medication based
-                a patient&apos;s asthma condition as per Canadian guidelines. I also helped design
-                and deploy a bilingual&nbsp;
+                , a clinical decision support system for asthma that recommends medication based a
+                patient&apos;s asthma condition as per Canadian guidelines. I also helped design and
+                deploy a bilingual&nbsp;
                 <Link href={"https://asthmadecisionaid.com"} isExternal>
                     asthma decision aid tool
                 </Link>

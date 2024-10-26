@@ -27,20 +27,13 @@ export default function Intro() {
     const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
-        <Flex
-            ref={ref}
-            className={"w-full"}
-            flexDir={"row"}
-            gap={12}
-            // border="1px solid red"
-        >
+        <Flex ref={ref} width={"100%"} flexDir={"row"} gap={12}>
             <Flex
                 flexDir={"column"}
                 alignItems={"end"}
                 flexBasis={["100px"]}
                 flexGrow={0}
                 flexShrink={0}
-                // border="1px solid red"
             >
                 <ProgressBar circleColor={""} lineStartColor={""} lineEndColor={""} />
             </Flex>

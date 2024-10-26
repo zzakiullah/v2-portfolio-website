@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import NextLink from "next/link";
+import { useRef } from "react";
 import { Flex, Heading, Text, UnorderedList, ListItem, Link, Image } from "@chakra-ui/react";
 // import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
@@ -19,20 +19,13 @@ export default function Bio() {
     );
 
     return (
-        <Flex
-            ref={ref}
-            className={"w-full"}
-            flexDir={"row"}
-            gap={12}
-            // border="1px solid red"
-        >
+        <Flex ref={ref} width={"100%"} flexDir={"row"} gap={12}>
             <Flex
                 flexDir={"column"}
                 alignItems={"end"}
                 flexBasis={["100px"]}
                 flexGrow={0}
                 flexShrink={0}
-                // border="1px solid red"
             >
                 <ProgressBar
                     circleColor={""}
