@@ -33,6 +33,7 @@ import {
 } from "react-icons/bi";
 import {
     SiRuby,
+    SiNextdotjs,
     SiAndroid,
     SiFirebase,
     SiKicad,
@@ -213,6 +214,12 @@ const tags: ITag[] = [
         text: "Node.js",
         bgColor: "#3c873a",
         color: "white",
+    },
+    {
+        icon: <SiNextdotjs />,
+        text: "Next.js",
+        bgColor: "white",
+        color: "black",
     },
     {
         icon: <FaPhp />,
