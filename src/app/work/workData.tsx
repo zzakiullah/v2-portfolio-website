@@ -26,8 +26,8 @@ const workData = [
                 voltammetry and chronoamperometry.
             </>
         ),
-        logo: "university_of_waterloo.png",
-        blurLogo: "university_of_waterloo_blur.png",
+        img: "university_of_waterloo.png",
+        blurImg: "university_of_waterloo_blur.png",
         url: "https://uwaterloo.ca/silicon-bioelectronics-laboratory",
         tags: [Tag.Verilog, Tag.Python, Tag.AltiumDesigner, Tag.Cadence],
     },
@@ -52,8 +52,8 @@ const workData = [
                 strain data.
             </>
         ),
-        logo: "university_of_waterloo.png",
-        blurLogo: "university_of_waterloo_blur.png",
+        img: "university_of_waterloo.png",
+        blurImg: "university_of_waterloo_blur.png",
         url: "https://uwaterloo.ca/waterloo-composite-biomaterial-systems-lab",
         tags: [Tag.MATLAB],
     },
@@ -74,8 +74,8 @@ const workData = [
                 temperature control module to be used in our fabrication laboratory.
             </>
         ),
-        logo: "onsemi.png",
-        blurLogo: "onsemi_blur.png",
+        img: "onsemi.png",
+        blurImg: "onsemi_blur.png",
         url: "https://www.onsemi.com",
         tags: [Tag.CPlusPlus, Tag.Python],
     },
@@ -103,8 +103,8 @@ const workData = [
                 &nbsp;for patients and providers.
             </>
         ),
-        logo: "unity_health_toronto.png",
-        blurLogo: "unity_health_toronto_blur.png",
+        img: "unity_health_toronto.png",
+        blurImg: "unity_health_toronto_blur.png",
         url: "https://unityhealth.to",
         tags: [Tag.Python, Tag.Java, Tag.JavaScript, Tag.HTML, Tag.CSS, Tag.React, Tag.Spring],
     },
@@ -123,8 +123,8 @@ const workData = [
                 developed APIs, unit test suites, and test Android apps.
             </>
         ),
-        logo: "ford_motor_company.png",
-        blurLogo: "ford_motor_company_blur.png",
+        img: "ford_motor_company.png",
+        blurImg: "ford_motor_company_blur.png",
         url: "https://www.ford.ca",
         tags: [Tag.Java, Tag.Android, Tag.Jenkins, Tag.Linux],
     },
@@ -143,8 +143,8 @@ const workData = [
                 improve our testing suites.
             </>
         ),
-        logo: "ford_motor_company.png",
-        blurLogo: "ford_motor_company_blur.png",
+        img: "ford_motor_company.png",
+        blurImg: "ford_motor_company_blur.png",
         url: "https://www.ford.ca",
         tags: [Tag.Python, Tag.CPlusPlus, Tag.Jenkins, Tag.Linux],
     },
@@ -162,8 +162,8 @@ const workData = [
                 students in English, math, physics, and chemistry.
             </>
         ),
-        logo: "gecdsb.jpg",
-        blurLogo: "gecdsb_blur.jpg",
+        img: "gecdsb.jpg",
+        blurImg: "gecdsb_blur.jpg",
         url: "https://www.publicboard.ca",
         tags: [],
     },

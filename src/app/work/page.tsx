@@ -26,10 +26,10 @@ export default function Work() {
                         company={data.company}
                         positions={data.positions}
                         description={data.description}
-                        logo={data.logo}
-                        blurLogo={data.blurLogo}
+                        img={data.img}
+                        blurImg={data.blurImg}
                         url={data.url}
-                        tags={data.tags}
+                        tagNums={data.tags}
                     />
                 );
             })}
