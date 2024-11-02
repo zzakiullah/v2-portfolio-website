@@ -1,23 +1,18 @@
 "use client";
 
-import NextImage from "next/image";
 import NextLink from "next/link";
 import { useRef } from "react";
 import { Flex, Box, Heading, Text, Button, Link, Badge, Wrap, WrapItem } from "@chakra-ui/react";
-import { FiExternalLink } from "react-icons/fi";
+import { GoArrowUpRight } from "react-icons/go";
 import { useInViewport } from "react-in-viewport";
 
 import { tags, Tag } from "@/constants/tags";
 import ProgressBar from "@/components/ProgressBar";
 
-interface IPosition {
-    name: string;
-    duration: string;
-}
-
 interface WorkItemProps {
     company: string;
-    positions: IPosition[];
+    position: string;
+    duration: string;
     description: JSX.Element;
     img: string;
     blurImg: string;
@@ -27,7 +22,8 @@ interface WorkItemProps {
 
 export default function WorkItem({
     company,
-    positions,
+    position,
+    duration,
     description,
     img,
     blurImg,
@@ -56,7 +52,7 @@ export default function WorkItem({
                     circleColor={""}
                     lineStartColor={""}
                     lineEndColor={""}
-                    // icon={<MdOutlineFace />}
+                    // icon={}
                 />
             </Flex>
             <Flex
@@ -69,30 +65,21 @@ export default function WorkItem({
                 opacity={enterCount > 0 ? 1 : 0.2}
                 // w={["1000px"]}
             >
-                <NextImage
-                    className="w-full h-full object-cover"
-                    alt={`${company} logo`}
-                    src={`/work/${img}`}
-                    blurDataURL={`/work}/${blurImg}`}
-                    placeholder="blur"
-                    width={1000}
-                    height={1000}
-                />
-                <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
-                    {company}
+                <Heading as={"h6"} color={"white"} fontWeight={"medium"} fontSize={["xl"]}>
+                    {duration}
                 </Heading>
-                {positions.map((position, index) => {
-                    return (
-                        <Flex key={index}>
-                            <Heading as={"h3"} color={"white"} fontWeight={"medium"} fontSize={["3xl"]}>
-                                {position.name}
-                            </Heading>
-                            <Heading as={"h3"} color={"white"} fontWeight={"medium"} fontSize={["3xl"]}>
-                                {position.duration}
-                            </Heading>
-                        </Flex>
-                    );
-                })}
+                <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
+                    <Link
+                        className={"work-link"}
+                        href={url}
+                        isExternal
+                        position={"relative"}
+                        _hover={{  }}
+                    >
+                        {position} &bull; {company}
+                        <GoArrowUpRight className={"work-link-icon"} />
+                    </Link>
+                </Heading>
                 <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     {description}
                 </Text>
@@ -127,10 +114,6 @@ export default function WorkItem({
                         );
                     })}
                 </Wrap>
-                <Link href={url} isExternal>
-                    Company website
-                    <FiExternalLink />
-                </Link>
             </Flex>
         </Flex>
     );

@@ -315,6 +315,15 @@ body {
     opacity: 0.4;
 }
 
+.work-link-icon {
+    position: relative;
+}
+
+.work-link:hover > .work-link-icon
+.work-link:focus > .work-link-icon {
+    transform: translate(10px, -10px);
+}
+
 /* sm screen */
 @media only screen and (min-width: 640px) {
     .main-icon {
