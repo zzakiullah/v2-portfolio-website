@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import { useRef } from "react";
-import { Flex, Box, Heading, Text, Button, Link, Badge, Wrap, WrapItem } from "@chakra-ui/react";
+import { Flex, Heading, Text, Link, Badge, Wrap, WrapItem } from "@chakra-ui/react";
 import { GoArrowUpRight } from "react-icons/go";
 import { useInViewport } from "react-in-viewport";
 
@@ -16,23 +16,13 @@ interface IPosition {
 
 interface WorkItemProps {
     company: string;
-    position: string;
-    duration: string;
     positions: IPosition[];
     description: JSX.Element;
     url: string;
     tagNums: Tag[];
 }
 
-export default function WorkItem({
-    company,
-    position,
-    duration,
-    positions,
-    description,
-    url,
-    tagNums,
-}: WorkItemProps) {
+export default function WorkItem({ company, positions, description, url, tagNums }: WorkItemProps) {
     const ref = useRef(null);
 
     const { enterCount } = useInViewport(
@@ -72,7 +62,7 @@ export default function WorkItem({
                     as={"h2"}
                     className={"custom-transition-fast"}
                     color={"white"}
-                    fontWeight={"medium"}
+                    fontWeight={"semibold"}
                     fontSize={["2xl", "3xl"]}
                     position={"relative"}
                 >
@@ -81,7 +71,7 @@ export default function WorkItem({
                         href={url}
                         isExternal
                         position={"relative"}
-                        _hover={{ color: "purple.300" }}
+                        _hover={{ color: "purple.200" }}
                     >
                         {company}&nbsp;
                         <GoArrowUpRight className={"work-link-icon custom-transition-fast"} />
@@ -89,9 +79,15 @@ export default function WorkItem({
                 </Heading>
                 {positions.map((position, index) => {
                     return (
-                        <Heading key={index} as={"h3"} color={"white"} fontWeight={"medium"} fontSize={["lg", "xl"]}>
+                        <Heading
+                            key={index}
+                            as={"h3"}
+                            color={`purple.${400 + 200 * index}`}
+                            fontWeight={"medium"}
+                            fontSize={["lg", "xl"]}
+                        >
                             {position.name} &bull; {position.duration}
-                        </Heading>    
+                        </Heading>
                     );
                 })}
                 <Text color={"zz.textGray"} fontSize={["xl"]}>
@@ -101,7 +97,11 @@ export default function WorkItem({
                     {tagNums.map((tagNum, index) => {
                         const tag = tags[tagNum];
                         return (
-                            <WrapItem key={index} p={1}>
+                            <WrapItem
+                                className={"skill-badge-wrapper custom-transition-default"}
+                                key={index}
+                                p={1}
+                            >
                                 <Badge
                                     // as={NextLink}
                                     as={"button"}

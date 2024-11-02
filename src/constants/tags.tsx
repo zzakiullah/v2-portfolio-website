@@ -75,6 +75,7 @@ enum Tag {
     Android,
     ReactNative,
     Node,
+    Next,
     PHP,
     PostgreSQL,
     GraphQL,

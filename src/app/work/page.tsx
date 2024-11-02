@@ -25,8 +25,6 @@ export default function Work() {
                     <WorkItem
                         key={index}
                         company={data.company}
-                        position={data.position}
-                        duration={data.duration}
                         positions={data.positions}
                         description={data.description}
                         url={data.url}
