@@ -9,13 +9,17 @@ import { useInViewport } from "react-in-viewport";
 import { tags, Tag } from "@/constants/tags";
 import ProgressBar from "@/components/ProgressBar";
 
+interface IPosition {
+    name: string;
+    duration: string;
+}
+
 interface WorkItemProps {
     company: string;
     position: string;
     duration: string;
+    positions: IPosition[];
     description: JSX.Element;
-    img: string;
-    blurImg: string;
     url: string;
     tagNums: Tag[];
 }
@@ -24,9 +28,8 @@ export default function WorkItem({
     company,
     position,
     duration,
+    positions,
     description,
-    img,
-    blurImg,
     url,
     tagNums,
 }: WorkItemProps) {
@@ -65,25 +68,36 @@ export default function WorkItem({
                 opacity={enterCount > 0 ? 1 : 0.2}
                 // w={["1000px"]}
             >
-                <Heading as={"h6"} color={"white"} fontWeight={"medium"} fontSize={["xl"]}>
-                    {duration}
-                </Heading>
-                <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
+                <Heading
+                    as={"h2"}
+                    className={"custom-transition-fast"}
+                    color={"white"}
+                    fontWeight={"medium"}
+                    fontSize={["2xl", "3xl"]}
+                    position={"relative"}
+                >
                     <Link
-                        className={"work-link"}
+                        className={"work-link custom-transition-fast"}
                         href={url}
                         isExternal
                         position={"relative"}
-                        _hover={{  }}
+                        _hover={{ color: "purple.300" }}
                     >
-                        {position} &bull; {company}
-                        <GoArrowUpRight className={"work-link-icon"} />
+                        {company}&nbsp;
+                        <GoArrowUpRight className={"work-link-icon custom-transition-fast"} />
                     </Link>
                 </Heading>
-                <Text color={"zz.textGray"} fontSize={["2xl"]}>
+                {positions.map((position, index) => {
+                    return (
+                        <Heading key={index} as={"h3"} color={"white"} fontWeight={"medium"} fontSize={["lg", "xl"]}>
+                            {position.name} &bull; {position.duration}
+                        </Heading>    
+                    );
+                })}
+                <Text color={"zz.textGray"} fontSize={["xl"]}>
                     {description}
                 </Text>
-                <Wrap>
+                <Wrap spacing={0}>
                     {tagNums.map((tagNum, index) => {
                         const tag = tags[tagNum];
                         return (

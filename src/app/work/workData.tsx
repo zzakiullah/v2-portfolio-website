@@ -4,9 +4,17 @@ import { Tag } from "@/constants/tags";
 
 const workData = [
     {
-        company: "Silicon Bioelectronics Laboratory",
-        position: "Research Assistant",
-        duration: "Sep 2023 - Apr 2024",
+        company: "University of Waterloo - SiBio Lab",
+        positions: [
+            {
+                name: "Research Assistant",
+                duration: "Jan 2024 - Apr 2024",
+            },
+            {
+                name: "Hardware Designer",
+                duration: "Sep 2023 - Dec 2023",
+            },
+        ],
         description: (
             <>
                 For my sixth and final co-op term, I worked as a Hardware Designer at the Silicon
@@ -22,9 +30,17 @@ const workData = [
         tags: [Tag.Verilog, Tag.Python, Tag.AltiumDesigner, Tag.Cadence],
     },
     {
-        company: "Composite Biomaterial Systems Laboratory",
-        position: "Research Assistant",
-        duration: "Jan 2022 - Apr 2022, May 2023 - Aug 2023",
+        company: "University of Waterloo - WCBS Lab",
+        positions: [
+            {
+                name: "Research Assistant",
+                duration: "May 2023 - Aug 2023",
+            },
+            {
+                name: "Research Assistant",
+                duration: "Jan 2022 - Apr 2022",
+            },
+        ],
         description: (
             <>
                 For two terms, I worked as an Undergraduate Research Assistant at the Composite
@@ -39,8 +55,12 @@ const workData = [
     },
     {
         company: "Onsemi",
-        position: "Hardware & Systems Developer",
-        duration: "Jan 2023 - Apr 2023",
+        positions: [
+            {
+                name: "Hardware & Systems Developer",
+                duration: "Jan 2023 - Apr 2023",
+            },
+        ],
         description: (
             <>
                 For my fifth co-op term, I worked as a Hardware &amp; Systems Developer at Onsemi.
@@ -55,12 +75,16 @@ const workData = [
     },
     {
         company: "St Michael's Hospital",
-        position: "Software Developer",
-        duration: "Aug 2021 - Aug 2022",
+        positions: [
+            {
+                name: "Software Developer",
+                duration: "Aug 2021 - Aug 2022",
+            },
+        ],
         description: (
             <>
                 For my third and fourth co-op terms, I worked as a Software Developer on a research
-                team at St. Michael&amp;s Hospital. There, I mainly contributed to the
+                team at St. Michael&apos;s Hospital. There, I mainly contributed to the
                 <Link href={"https://easthma.ca"} isExternal>
                     eAMS (electronic asthma management system)
                 </Link>
@@ -78,8 +102,12 @@ const workData = [
     },
     {
         company: "Ford Motor Company",
-        position: "Software Developer",
-        duration: "Jan 2021 - Apr 2021",
+        positions: [
+            {
+                name: "Software Developer",
+                duration: "Jan 2021 - Apr 2021",
+            },
+        ],
         description: (
             <>
                 For my second co-op term, I came back to Ford as a Software Developer. This time, I
@@ -92,8 +120,12 @@ const workData = [
     },
     {
         company: "Ford Motor Company",
-        position: "Test Automation Developer",
-        duration: "May 2020 - Aug 2020",
+        positions: [
+            {
+                name: "Test Automation Developer",
+                duration: "May 2020 - Aug 2020",
+            },
+        ],
         description: (
             <>
                 For my first co-op term, I worked at Ford as a Test Automation Developer. There, I
@@ -106,8 +138,12 @@ const workData = [
     },
     {
         company: "Greater Essex County District School Board",
-        position: "Summer Learning Tutor",
-        duration: "Jul 2019",
+        positions: [
+            {
+                name: "Summer Learning Tutor",
+                duration: "Jul 2019",
+            },
+        ],
         description: (
             <>
                 During summer school, I worked as a tutor under the school board for high school

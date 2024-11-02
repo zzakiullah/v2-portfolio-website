@@ -18,16 +18,17 @@ export default function Work() {
             alignItems={"center"}
             px={["6rem"]}
             py={["12rem"]}
+            gap={12}
         >
             {workData.map((data, index) => {
                 return (
                     <WorkItem
                         key={index}
                         company={data.company}
+                        position={data.position}
+                        duration={data.duration}
                         positions={data.positions}
                         description={data.description}
-                        img={data.img}
-                        blurImg={data.blurImg}
                         url={data.url}
                         tagNums={data.tags}
                     />
