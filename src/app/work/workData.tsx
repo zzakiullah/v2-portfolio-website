@@ -155,4 +155,4 @@ const workData = [
     },
 ];
 
-export { workData };
+export default workData;
