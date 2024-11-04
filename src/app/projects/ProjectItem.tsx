@@ -61,7 +61,6 @@ export default function ProjectItem({
             >
                 <Heading
                     as={"h2"}
-                    className={"custom-transition-fast"}
                     color={"white"}
                     fontWeight={"semibold"}
                     fontSize={["2xl", "3xl"]}
@@ -72,7 +71,7 @@ export default function ProjectItem({
                 <Text color={"zz.textGray"} fontSize={["xl"]}>
                     {description}
                 </Text>
-                <Wrap spacing={0}>
+                <Wrap spacing={0} mx={-1}>
                     {tagNums.map((tagNum, index) => {
                         const tag = tags[tagNum];
                         return (
@@ -107,18 +106,21 @@ export default function ProjectItem({
                         );
                     })}
                 </Wrap>
-                <Flex flexDirection={["column", "row"]} gap={[2, 4]}>
+                <Flex flexDirection={["column", "row"]} gap={[2, 6]}>
                     {demoUrl && (
                         <Link
                             className={"project-link custom-transition-fast"}
                             href={demoUrl}
                             isExternal
                             position={"relative"}
+                            color={"white"}
+                            fontSize={["xl"]}
+                            // textDecoration={"underline"}
                             _hover={{ color: "purple.200" }}
                         >
-                            Live Demo&nbsp;
+                            Live Demo
                             <GoArrowUpRight
-                                className={"project-link-icon custom-transition-fast"}
+                                className={"project-link-icon custom-transition-fast ml-1"}
                             />
                         </Link>
                     )}
@@ -128,11 +130,14 @@ export default function ProjectItem({
                             href={srcUrl}
                             isExternal
                             position={"relative"}
+                            color={"white"}
+                            fontSize={["xl"]}
+                            // textDecoration={"underline"}
                             _hover={{ color: "purple.200" }}
                         >
-                            Source Code&nbsp;
+                            Source Code
                             <GoArrowUpRight
-                                className={"project-link-icon custom-transition-fast"}
+                                className={"project-link-icon custom-transition-fast ml-1"}
                             />
                         </Link>
                     )}

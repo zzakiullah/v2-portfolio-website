@@ -315,7 +315,8 @@ body {
     opacity: 0.4;
 }
 
-.work-link-icon {
+.work-link-icon,
+.project-link-icon {
     position: relative;
     display: inline;
     left: 0;
@@ -324,8 +325,14 @@ body {
 
 .work-link:hover > .work-link-icon,
 .work-link:focus > .work-link-icon {
-    left: 5px;
-    bottom: 5px;
+    left: 4px;
+    bottom: 4px;
+}
+
+.project-link:hover > .project-link-icon,
+.project-link:focus > .project-link-icon {
+    left: 4px;
+    bottom: 4px;
 }
 
 /* sm screen */

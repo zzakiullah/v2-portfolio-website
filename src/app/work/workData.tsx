@@ -84,7 +84,7 @@ const workData = [
         description: (
             <>
                 For my third and fourth co-op terms, I worked as a Software Developer on a research
-                team at St. Michael&apos;s Hospital. There, I mainly contributed to the
+                team at St. Michael&apos;s Hospital. There, I mainly contributed to the&nbsp;
                 <Link href={"https://easthma.ca"} isExternal>
                     eAMS (electronic asthma management system)
                 </Link>

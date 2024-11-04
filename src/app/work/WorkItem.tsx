@@ -60,22 +60,12 @@ export default function WorkItem({ company, positions, description, url, tagNums
             >
                 <Heading
                     as={"h2"}
-                    className={"custom-transition-fast"}
                     color={"white"}
                     fontWeight={"semibold"}
                     fontSize={["2xl", "3xl"]}
                     position={"relative"}
                 >
-                    <Link
-                        className={"work-link custom-transition-fast"}
-                        href={url}
-                        isExternal
-                        position={"relative"}
-                        _hover={{ color: "purple.200" }}
-                    >
-                        {company}&nbsp;
-                        <GoArrowUpRight className={"work-link-icon custom-transition-fast"} />
-                    </Link>
+                    {company}
                 </Heading>
                 {positions.map((position, index) => {
                     return (
@@ -93,7 +83,22 @@ export default function WorkItem({ company, positions, description, url, tagNums
                 <Text color={"zz.textGray"} fontSize={["xl"]}>
                     {description}
                 </Text>
-                <Wrap spacing={0}>
+                <Flex mt={2}>
+                    <Link
+                        className={"work-link custom-transition-fast"}
+                        href={url}
+                        isExternal
+                        position={"relative"}
+                        color={"white"}
+                        fontSize={["xl"]}
+                        // textDecoration={"underline"}
+                        _hover={{ color: "purple.200" }}
+                    >
+                        Company Website
+                        <GoArrowUpRight className={"work-link-icon custom-transition-fast ml-1"} />
+                    </Link>
+                </Flex>
+                <Wrap spacing={0} mx={-1} mt={2}>
                     {tagNums.map((tagNum, index) => {
                         const tag = tags[tagNum];
                         return (

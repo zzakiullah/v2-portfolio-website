@@ -8,6 +8,7 @@ const projectData = [
         description: <>Hello ...</>,
         srcUrl: "https://github.com/zzakiullah/Super-Mario-Galaxy-Paint",
         demoUrl: "https://zzakiullah.github.io/Super-Mario-Galaxy-Paint",
+        // demoUrl: "",
         tags: [Tag.Python],
     },
 ];
