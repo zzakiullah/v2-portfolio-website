@@ -85,13 +85,23 @@ const workData = [
             <>
                 For my third and fourth co-op terms, I worked as a Software Developer on a research
                 team at St. Michael&apos;s Hospital. There, I mainly contributed to the&nbsp;
-                <Link href={"https://easthma.ca"} isExternal>
+                <Link
+                    href={"https://easthma.ca"}
+                    isExternal
+                    color={"white"}
+                    _hover={{ color: "purple.200" }}
+                >
                     eAMS (electronic asthma management system)
                 </Link>
                 , a clinical decision support system for asthma that recommends medication based a
                 patient&apos;s asthma condition as per Canadian guidelines. I also helped design and
                 deploy a bilingual&nbsp;
-                <Link href={"https://asthmadecisionaid.com"} isExternal>
+                <Link
+                    href={"https://asthmadecisionaid.com"}
+                    isExternal
+                    color={"white"}
+                    _hover={{ color: "purple.200" }}
+                >
                     asthma decision aid tool
                 </Link>
                 &nbsp;for patients and providers.
