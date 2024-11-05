@@ -22,7 +22,7 @@ export default function About() {
         >
             <Intro />
             <Bio />
-            <Skills />
+            {/* <Skills /> */}
         </Flex>
     );
 }

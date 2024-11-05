@@ -27,7 +27,8 @@ const workData = [
             </>
         ),
         url: "https://uwaterloo.ca/silicon-bioelectronics-laboratory",
-        tags: [Tag.Verilog, Tag.Python, Tag.AltiumDesigner, Tag.Cadence],
+        // tags: [Tag.Verilog, Tag.Python, Tag.AltiumDesigner, Tag.Cadence],
+        tags: ["Verilog", "Python", "Vivado", "Altium Designer", "Cadence"],
     },
     {
         company: "University of Waterloo - WCBS Lab",
@@ -51,7 +52,8 @@ const workData = [
             </>
         ),
         url: "https://uwaterloo.ca/waterloo-composite-biomaterial-systems-lab",
-        tags: [Tag.MATLAB],
+        // tags: [Tag.MATLAB],
+        tags: ["MATLAB"],
     },
     {
         company: "Onsemi",
@@ -71,7 +73,8 @@ const workData = [
             </>
         ),
         url: "https://www.onsemi.com",
-        tags: [Tag.CPlusPlus, Tag.Python],
+        // tags: [Tag.CPlusPlus, Tag.Python],
+        tags: ["C/C++", "PIC32", "Python", "Behave"],
     },
     {
         company: "St Michael's Hospital",
@@ -108,7 +111,8 @@ const workData = [
             </>
         ),
         url: "https://unityhealth.to",
-        tags: [Tag.Python, Tag.Java, Tag.JavaScript, Tag.HTML, Tag.CSS, Tag.React, Tag.Spring],
+        // tags: [Tag.Python, Tag.Java, Tag.JavaScript, Tag.HTML, Tag.CSS, Tag.React, Tag.Spring],
+        tags: ["Python", "Java", "Selenium", "JavaScript", "HTML", "CSS", "React", "Spring"],
     },
     {
         company: "Ford Motor Company",
@@ -126,7 +130,8 @@ const workData = [
             </>
         ),
         url: "https://www.ford.ca",
-        tags: [Tag.Java, Tag.Android, Tag.Jenkins, Tag.Linux],
+        // tags: [Tag.Java, Tag.Android, Tag.Jenkins, Tag.Linux],
+        tags: ["Java", "JUnit", "Android Studio", "Jenkins", "Linux"],
     },
     {
         company: "Ford Motor Company",
@@ -144,7 +149,8 @@ const workData = [
             </>
         ),
         url: "https://www.ford.ca",
-        tags: [Tag.Python, Tag.CPlusPlus, Tag.Jenkins, Tag.Linux],
+        // tags: [Tag.Python, Tag.CPlusPlus, Tag.Jenkins, Tag.Linux],
+        tags: ["Python", "C/C++", "Jenkins", "Linux"],
     },
     {
         company: "Greater Essex County District School Board",

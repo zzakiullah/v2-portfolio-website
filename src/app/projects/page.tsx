@@ -28,7 +28,8 @@ export default function Projects() {
                         description={data.description}
                         srcUrl={data.srcUrl}
                         demoUrl={data.demoUrl}
-                        tagNums={data.tags}
+                        // tagNums={data.tags}
+                        tags={data.tags}
                     />
                 );
             })}

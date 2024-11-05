@@ -2,11 +2,11 @@
 
 import NextLink from "next/link";
 import { useRef } from "react";
-import { Flex, Heading, Text, Link, Badge, Wrap, WrapItem } from "@chakra-ui/react";
+import { Flex, Heading, Text, Link, Tag, Wrap, WrapItem } from "@chakra-ui/react";
 import { GoArrowUpRight } from "react-icons/go";
 import { useInViewport } from "react-in-viewport";
 
-import { tags, Tag } from "@/constants/tags";
+// import { tags, Tag } from "@/constants/tags";
 import ProgressBar from "@/components/ProgressBar";
 
 interface IPosition {
@@ -19,10 +19,10 @@ interface WorkItemProps {
     positions: IPosition[];
     description: JSX.Element;
     url: string;
-    tagNums: Tag[];
+    tags: string[];
 }
 
-export default function WorkItem({ company, positions, description, url, tagNums }: WorkItemProps) {
+export default function WorkItem({ company, positions, description, url, tags }: WorkItemProps) {
     const ref = useRef(null);
 
     const { enterCount } = useInViewport(
@@ -83,6 +83,33 @@ export default function WorkItem({ company, positions, description, url, tagNums
                 <Text color={"zz.textGray"} fontSize={["xl"]}>
                     {description}
                 </Text>
+                <Wrap spacing={0} mx={-1}>
+                    {tags.map((tag, index) => {
+                        return (
+                            <WrapItem
+                                className={"skill-tag-wrapper custom-transition-default"}
+                                key={index} 
+                                p={1}
+                            >
+                                <Tag
+                                    // as={NextLink}
+                                    as={"button"}
+                                    onClick={() => console.log(`Clicked ${tag}`)}
+                                    className={"skill-tag custom-transition-default"}
+                                    cursor={"pointer"}
+                                    borderRadius={"full"}
+                                    px={3}
+                                    py={1.5}
+                                    bgColor={"purple.900"}
+                                    color={"purple.100"}
+                                    size={"md"}
+                                >
+                                    {tag}
+                                </Tag>
+                            </WrapItem>
+                        );
+                    })}
+                </Wrap>
                 <Flex mt={2}>
                     <Link
                         className={"work-link custom-transition-fast"}
@@ -98,7 +125,7 @@ export default function WorkItem({ company, positions, description, url, tagNums
                         <GoArrowUpRight className={"work-link-icon custom-transition-fast ml-1"} />
                     </Link>
                 </Flex>
-                <Wrap spacing={0} mx={-1} mt={2}>
+                {/* <Wrap spacing={0} mx={-1} mt={2}>
                     {tagNums.map((tagNum, index) => {
                         const tag = tags[tagNum];
                         return (
@@ -132,7 +159,7 @@ export default function WorkItem({ company, positions, description, url, tagNums
                             </WrapItem>
                         );
                     })}
-                </Wrap>
+                </Wrap> */}
             </Flex>
         </Flex>
     );

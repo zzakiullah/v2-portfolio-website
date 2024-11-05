@@ -2,11 +2,19 @@
 
 import NextLink from "next/link";
 import { useRef } from "react";
-import { Flex, Heading, Text, Link, Badge, Wrap, WrapItem } from "@chakra-ui/react";
+import {
+    Flex,
+    Heading,
+    Text,
+    Link,
+    Tag,
+    Wrap,
+    WrapItem,
+} from "@chakra-ui/react";
 import { GoArrowUpRight } from "react-icons/go";
 import { useInViewport } from "react-in-viewport";
 
-import { tags, Tag } from "@/constants/tags";
+// import { tags, Tag } from "@/constants/tags";
 import ProgressBar from "@/components/ProgressBar";
 
 interface ProjectItemProps {
@@ -14,7 +22,8 @@ interface ProjectItemProps {
     description: JSX.Element;
     srcUrl?: string;
     demoUrl?: string;
-    tagNums: Tag[];
+    // tagNums: Tag[];
+    tags: string[];
 }
 
 export default function ProjectItem({
@@ -22,7 +31,8 @@ export default function ProjectItem({
     description,
     srcUrl,
     demoUrl,
-    tagNums,
+    // tagNums,
+    tags,
 }: ProjectItemProps) {
     const ref = useRef(null);
 
@@ -72,41 +82,33 @@ export default function ProjectItem({
                     {description}
                 </Text>
                 <Wrap spacing={0} mx={-1}>
-                    {tagNums.map((tagNum, index) => {
-                        const tag = tags[tagNum];
+                    {tags.map((tag, index) => {
                         return (
                             <WrapItem
-                                className={"skill-badge-wrapper custom-transition-default"}
-                                key={index}
+                                className={"skill-tag-wrapper custom-transition-default"}
+                                key={index} 
                                 p={1}
                             >
-                                <Badge
+                                <Tag
                                     // as={NextLink}
                                     as={"button"}
-                                    onClick={() => console.log(`Clicked ${tag.text}`)}
-                                    className={"skill-badge custom-transition-default"}
+                                    onClick={() => console.log(`Clicked ${tag}`)}
+                                    className={"skill-tag custom-transition-default"}
                                     cursor={"pointer"}
-                                    display={"flex"}
-                                    flexDirection={"row"}
-                                    alignItems={"center"}
-                                    justifyContent={"center"}
-                                    bgColor={tag.bgColor}
-                                    color={tag.color}
-                                    fontSize={"lg"}
-                                    fontWeight={"semibold"}
-                                    px={2}
-                                    gap={1}
-                                    whiteSpace={"nowrap"}
-                                    textTransform={"none"}
+                                    borderRadius={"full"}
+                                    px={3}
+                                    py={1.5}
+                                    bgColor={"purple.900"}
+                                    color={"purple.100"}
+                                    size={"md"}
                                 >
-                                    {tag.icon}
-                                    {tag.text}
-                                </Badge>
+                                    {tag}
+                                </Tag>
                             </WrapItem>
                         );
                     })}
                 </Wrap>
-                <Flex flexDirection={["column", "row"]} gap={[2, 6]}>
+                <Flex flexDirection={["column", "row"]} gap={[2, 6]} mt={2}>
                     {demoUrl && (
                         <Link
                             className={"project-link custom-transition-fast"}
@@ -114,7 +116,7 @@ export default function ProjectItem({
                             isExternal
                             position={"relative"}
                             color={"white"}
-                            fontSize={["xl"]}
+                            fontSize={["lg"]}
                             // textDecoration={"underline"}
                             _hover={{ color: "purple.200" }}
                         >
@@ -131,7 +133,7 @@ export default function ProjectItem({
                             isExternal
                             position={"relative"}
                             color={"white"}
-                            fontSize={["xl"]}
+                            fontSize={["lg"]}
                             // textDecoration={"underline"}
                             _hover={{ color: "purple.200" }}
                         >

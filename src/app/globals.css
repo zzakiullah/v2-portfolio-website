@@ -315,6 +315,18 @@ body {
     opacity: 0.4;
 }
 
+.chakra-wrap__list > .skill-tag-wrapper:hover,
+.chakra-wrap__list > .skill-tag-wrapper > .skill-tag:focus {
+    opacity: 1;
+}
+
+.chakra-wrap__list:has(.skill-tag-wrapper:hover) > .skill-tag-wrapper:not(:hover),
+.chakra-wrap__list:has(> .skill-tag-wrapper > .skill-tag:focus)
+    > .skill-tag-wrapper
+    > .skill-tag:not(:focus) {
+    opacity: 0.4;
+}
+
 .work-link-icon,
 .project-link-icon {
     position: relative;

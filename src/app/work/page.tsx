@@ -28,7 +28,7 @@ export default function Work() {
                         positions={data.positions}
                         description={data.description}
                         url={data.url}
-                        tagNums={data.tags}
+                        tags={data.tags}
                     />
                 );
             })}
