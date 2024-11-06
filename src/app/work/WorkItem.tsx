@@ -88,15 +88,15 @@ export default function WorkItem({ company, positions, description, url, tags }:
                         return (
                             <WrapItem
                                 className={"skill-tag-wrapper custom-transition-default"}
-                                key={index} 
+                                key={index}
                                 p={1}
                             >
                                 <Tag
                                     // as={NextLink}
-                                    as={"button"}
-                                    onClick={() => console.log(`Clicked ${tag}`)}
+                                    // as={"button"}
+                                    // onClick={() => console.log(`Clicked ${tag}`)}
                                     className={"skill-tag custom-transition-default"}
-                                    cursor={"pointer"}
+                                    // cursor={"pointer"}
                                     borderRadius={"full"}
                                     px={3}
                                     py={1.5}
