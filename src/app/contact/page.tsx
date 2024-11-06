@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
+import ContactForm from "./ContactForm";
+
 export const metadata: Metadata = {
     title: "Contact",
 };
@@ -15,6 +17,8 @@ export default function Contact() {
             alignItems={"center"}
             px={["2rem"]}
             py={["12rem"]}
-        ></Flex>
+        >
+            <ContactForm />
+        </Flex>
     );
 }

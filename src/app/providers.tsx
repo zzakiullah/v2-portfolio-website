@@ -18,6 +18,7 @@ const theme = extendTheme({
     colors: {
         purple: {
             1000: "#2d2250",
+            1200: "#120e20",
         },
         zz: {
             purpleGray: {
