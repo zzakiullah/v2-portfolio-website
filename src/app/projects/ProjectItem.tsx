@@ -77,7 +77,7 @@ export default function ProjectItem({
                     {tags.map((tag, index) => {
                         return (
                             <WrapItem
-                                className={"skill-tag-wrapper custom-transition-default"}
+                                // className={"skill-tag-wrapper custom-transition-default"}
                                 key={index}
                                 p={1}
                             >
@@ -85,7 +85,7 @@ export default function ProjectItem({
                                     // as={NextLink}
                                     // as={"button"}
                                     // onClick={() => console.log(`Clicked ${tag}`)}
-                                    className={"skill-tag custom-transition-default"}
+                                    // className={"skill-tag custom-transition-default"}
                                     // cursor={"pointer"}
                                     borderRadius={"full"}
                                     px={3}
@@ -100,7 +100,7 @@ export default function ProjectItem({
                         );
                     })}
                 </Wrap>
-                {demoUrl && srcUrl && (
+                {(demoUrl || srcUrl) && (
                     <Flex flexDirection={["column", "row"]} gap={[2, 6]} mt={2}>
                         {demoUrl && (
                             <Link

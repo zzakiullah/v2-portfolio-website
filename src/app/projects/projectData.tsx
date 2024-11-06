@@ -7,7 +7,7 @@ const projectData = [
                 roster of 25+ characters and 15+ stages as you battle with up to 3 compute players.
             </>
         ),
-        srcUrl: "https://github.com/zzakiullah/Super-Smash-Bros",
+        srcUrl: "https://github.com/zzakiullah/Super-Smash-Bros-Rumble",
         demoUrl: "",
         tags: ["Java", "Swing"],
     },
