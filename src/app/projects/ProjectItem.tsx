@@ -6,7 +6,6 @@ import { Flex, Heading, Text, Link, Tag, Wrap, WrapItem } from "@chakra-ui/react
 import { GoArrowUpRight } from "react-icons/go";
 import { useInViewport } from "react-in-viewport";
 
-// import { tags, Tag } from "@/constants/tags";
 import ProgressBar from "@/components/ProgressBar";
 
 interface ProjectItemProps {
@@ -14,7 +13,6 @@ interface ProjectItemProps {
     description: JSX.Element;
     srcUrl?: string;
     demoUrl?: string;
-    // tagNums: Tag[];
     tags: string[];
 }
 
@@ -23,7 +21,6 @@ export default function ProjectItem({
     description,
     srcUrl,
     demoUrl,
-    // tagNums,
     tags,
 }: ProjectItemProps) {
     const ref = useRef(null);

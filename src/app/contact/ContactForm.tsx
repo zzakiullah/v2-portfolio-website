@@ -41,7 +41,7 @@ export default function ContactForm() {
                 duration: 8000,
                 isClosable: true,
             });
-            console.log(message);
+            // console.log(message);
         },
         onError: (message, data) => {
             toast({
@@ -51,7 +51,7 @@ export default function ContactForm() {
                 duration: 8000,
                 isClosable: true,
             });
-            console.log(message);
+            // console.log(message);
         },
     });
 

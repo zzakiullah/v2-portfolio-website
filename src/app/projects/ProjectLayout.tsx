@@ -1,25 +1,25 @@
-import type { Metadata } from "next";
-import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
+"use client";
+
+import { useState } from "react";
+import { Flex, Heading, Text, Link, Tag, Wrap, WrapItem } from "@chakra-ui/react";
+// import { GoArrowUpRight } from "react-icons/go";
 
 import ProjectItem from "./ProjectItem";
 import projectData from "./projectData";
 
-export const metadata: Metadata = {
-    title: "Projects",
-};
+interface IProject {
+    title: string;
+    description: JSX.Element;
+    srcUrl?: string;
+    demoUrl?: string;
+    tags: string[];
+}
 
-export default function Projects() {
+export default function ProjectLayout() {
+    const [filteredProjects, setFilteredProjects] = useState<IProject[]>([]);
+
     return (
-        <Flex
-            as={"main"}
-            className={"min-h-screen"}
-            bgColor={"zz.spaceBg"}
-            flexDir={"column"}
-            alignItems={"center"}
-            px={["6rem"]}
-            py={["12rem"]}
-            gap={12}
-        >
+        <Flex>
             {projectData.map((data, index) => {
                 return (
                     <ProjectItem

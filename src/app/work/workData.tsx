@@ -1,7 +1,5 @@
 import { Link } from "@chakra-ui/react";
 
-import { Tag } from "@/constants/tags";
-
 const workData = [
     {
         company: "University of Waterloo - SiBio Lab",
@@ -27,7 +25,6 @@ const workData = [
             </>
         ),
         url: "https://uwaterloo.ca/silicon-bioelectronics-laboratory",
-        // tags: [Tag.Verilog, Tag.Python, Tag.AltiumDesigner, Tag.Cadence],
         tags: ["Verilog", "Python", "Vivado", "Altium Designer", "Cadence"],
     },
     {
@@ -52,7 +49,6 @@ const workData = [
             </>
         ),
         url: "https://uwaterloo.ca/waterloo-composite-biomaterial-systems-lab",
-        // tags: [Tag.MATLAB],
         tags: ["MATLAB"],
     },
     {
@@ -73,7 +69,6 @@ const workData = [
             </>
         ),
         url: "https://www.onsemi.com",
-        // tags: [Tag.CPlusPlus, Tag.Python],
         tags: ["C/C++", "PIC32", "Python", "Behave"],
     },
     {
@@ -111,7 +106,6 @@ const workData = [
             </>
         ),
         url: "https://unityhealth.to",
-        // tags: [Tag.Python, Tag.Java, Tag.JavaScript, Tag.HTML, Tag.CSS, Tag.React, Tag.Spring],
         tags: ["Python", "Java", "Selenium", "JavaScript", "HTML", "CSS", "React", "Spring"],
     },
     {
@@ -130,7 +124,6 @@ const workData = [
             </>
         ),
         url: "https://www.ford.ca",
-        // tags: [Tag.Java, Tag.Android, Tag.Jenkins, Tag.Linux],
         tags: ["Java", "JUnit", "Android Studio", "Jenkins", "Linux"],
     },
     {
@@ -149,7 +142,6 @@ const workData = [
             </>
         ),
         url: "https://www.ford.ca",
-        // tags: [Tag.Python, Tag.CPlusPlus, Tag.Jenkins, Tag.Linux],
         tags: ["Python", "C/C++", "Jenkins", "Linux"],
     },
     {
