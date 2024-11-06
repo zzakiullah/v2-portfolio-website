@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Flex, Heading, Text, Link, Tag, Wrap, WrapItem } from "@chakra-ui/react";
 // import { GoArrowUpRight } from "react-icons/go";
 
+import { figtree } from "@/constants/fonts";
 import ProjectItem from "./ProjectItem";
 import projectData from "./projectData";
 
