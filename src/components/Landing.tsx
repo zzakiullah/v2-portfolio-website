@@ -101,7 +101,7 @@ export default function Landing() {
                                 opacity={0.2}
                                 as={NextLink}
                                 href={"/about"}
-                                className={"custom-btn"}
+                                className={"custom-btn custom-btn-disabled"}
                                 w={styles.mainBtn.width}
                                 fontSize={styles.mainBtn.fontSize}
                                 px={styles.mainBtn.paddingX}
@@ -260,7 +260,6 @@ const styles = {
             bgColor: "purple.500",
             borderColor: "purple.500",
             color: "white",
-            opacity: 0.2,
         },
         hoverSecondary: {
             bgColor: "transparent",

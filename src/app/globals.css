@@ -227,6 +227,10 @@ body {
     font-size: 16pt;
 }
 
+.custom-btn-disabled {
+    opacity: 0.2 !important;
+}
+
 .custom-btn-wrapper > .custom-btn:hover,
 .custom-btn-wrapper > .custom-btn:focus {
     opacity: 1;
