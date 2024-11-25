@@ -197,7 +197,7 @@ export default function Landing() {
                     </Link>
                     <Link
                         className={"main-icon-link"}
-                        href={"#"}
+                        href={"/assets/Resume_Zulaikha_Zakiullah.pdf"}
                         isExternal
                         aria-label={"Open Zulaikha's resume"}
                         color={"white"}
