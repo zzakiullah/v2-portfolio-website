@@ -110,8 +110,8 @@ export default function Landing() {
                                 borderColor={styles.mainBtn.colorPrimary}
                                 bgColor={styles.mainBtn.colorPrimary}
                                 color={styles.mainBtn.colorText}
-                                _hover={styles.mainBtn.hoverPrimary}
-                                _focus={styles.mainBtn.hoverPrimary}
+                                // _hover={styles.mainBtn.hoverPrimary}
+                                // _focus={styles.mainBtn.hoverPrimary}
                             >
                                 <Flex
                                     as="span"
