@@ -8,6 +8,7 @@ import {
     Text,
     Button,
     Link,
+    Tooltip,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -67,7 +68,8 @@ export default function Landing() {
                         fontSize={["lg", "xl", "xl", "2xl", "2xl", "3xl"]}
                         textAlign={"center"}
                     >
-                        Welcome to my space. Feel free to&nbsp;
+                        Welcome to my space. (Some things are still under construction.)
+                        {/* Welcome to my space. Feel free to&nbsp;
                         <Box
                             as={"button"}
                             className={"secret-btn custom-transition-default"}
@@ -77,7 +79,7 @@ export default function Landing() {
                         >
                             click things
                         </Box>
-                        .
+                        . */}
                     </Text>
                     <Flex
                         className={"custom-btn-wrapper"}
@@ -88,38 +90,47 @@ export default function Landing() {
                         mt={4}
                         zIndex={5}
                     >
-                        <Button
-                            as={NextLink}
-                            href={"/about"}
-                            className={"custom-btn"}
-                            w={styles.mainBtn.width}
-                            fontSize={styles.mainBtn.fontSize}
-                            px={styles.mainBtn.paddingX}
-                            py={styles.mainBtn.paddingY}
-                            borderWidth={styles.mainBtn.borderWidth}
-                            borderColor={styles.mainBtn.colorPrimary}
-                            bgColor={styles.mainBtn.colorPrimary}
-                            color={styles.mainBtn.colorText}
-                            _hover={styles.mainBtn.hoverPrimary}
-                            _focus={styles.mainBtn.hoverPrimary}
+                        <Tooltip
+                            label={"WIP - check back soon!"}
+                            aria-label={"WIP - check back soon!"}
+                            placement={"top"}
+                            hasArrow
                         >
-                            <Flex
-                                as="span"
-                                w={"100%"}
-                                flexDirection={"row"}
-                                alignItems={"center"}
-                                justifyContent={"space-between"}
-                                gap={2}
+                            <Button
+                                disabled
+                                opacity={0.2}
+                                as={NextLink}
+                                href={"/about"}
+                                className={"custom-btn"}
+                                w={styles.mainBtn.width}
+                                fontSize={styles.mainBtn.fontSize}
+                                px={styles.mainBtn.paddingX}
+                                py={styles.mainBtn.paddingY}
+                                borderWidth={styles.mainBtn.borderWidth}
+                                borderColor={styles.mainBtn.colorPrimary}
+                                bgColor={styles.mainBtn.colorPrimary}
+                                color={styles.mainBtn.colorText}
+                                _hover={styles.mainBtn.hoverPrimary}
+                                _focus={styles.mainBtn.hoverPrimary}
                             >
-                                <Flex as="span">Get to know me</Flex>
-                                <FaArrowRight
-                                    className={"external-link-icon custom-transition-default"}
-                                />
-                            </Flex>
-                        </Button>
+                                <Flex
+                                    as="span"
+                                    w={"100%"}
+                                    flexDirection={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"space-between"}
+                                    gap={2}
+                                >
+                                    <Flex as="span">Get to know me</Flex>
+                                    <FaArrowRight
+                                        className={"external-link-icon custom-transition-default"}
+                                    />
+                                </Flex>
+                            </Button>
+                        </Tooltip>
                         <Button
                             as={Link}
-                            href={"#"}
+                            href={"/assets/Resume_Zulaikha_Zakiullah.pdf"}
                             isExternal
                             className={"custom-btn"}
                             w={styles.mainBtn.width}
@@ -222,8 +233,8 @@ export default function Landing() {
                         color={"white"}
                         fontSize={["md", "lg", "xl"]}
                     >
-                        <Text>Made with 💜 and ☕</Text>
                         <Text>Galaxy background image from Freepik</Text>
+                        <Text>Designed and developed by me</Text>
                         <Text>Copyright &copy; Zulaikha Zakiullah 2025</Text>
                     </Flex>
                 </ModalContent>
