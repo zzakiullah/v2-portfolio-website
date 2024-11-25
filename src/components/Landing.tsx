@@ -110,8 +110,8 @@ export default function Landing() {
                                 borderColor={styles.mainBtn.colorPrimary}
                                 bgColor={styles.mainBtn.colorPrimary}
                                 color={styles.mainBtn.colorText}
-                                // _hover={styles.mainBtn.hoverPrimary}
-                                // _focus={styles.mainBtn.hoverPrimary}
+                                _hover={styles.mainBtn.hoverPrimary}
+                                _focus={styles.mainBtn.hoverPrimary}
                             >
                                 <Flex
                                     as="span"
@@ -260,6 +260,7 @@ const styles = {
             bgColor: "purple.500",
             borderColor: "purple.500",
             color: "white",
+            opacity: 0.2,
         },
         hoverSecondary: {
             bgColor: "transparent",
