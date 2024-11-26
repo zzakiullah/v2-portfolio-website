@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 
 import "./globals.css";
 import { Providers } from "./providers";
@@ -22,7 +23,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <BeamAnalytics />
+            <Head>
+                <BeamAnalytics />
+            </Head>
             <body>
                 <Providers>
                     <MyHeader />
