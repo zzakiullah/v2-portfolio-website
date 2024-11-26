@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 
-import BeamAnalytics from "@/components/BeamAnalytics";
 import MyHeader from "@/components/MyHeader";
 import MyNav from "@/components/MyNav";
 
@@ -30,7 +29,6 @@ export default function RootLayout({
                     async
                 ></script>
             </head>
-            <BeamAnalytics />
             <body>
                 <Providers>
                     <MyHeader />
