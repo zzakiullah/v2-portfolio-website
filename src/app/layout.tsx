@@ -20,8 +20,16 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const token = process.env.NEXT_PUBLIC_BEAM_ANALYTICS_TOKEN ?? "";
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    src={"https://beamanalytics.b-cdn.net/beam.min.js"}
+                    data-token={token}
+                    async
+                ></script>
+            </head>
             <BeamAnalytics />
             <body>
                 <Providers>
