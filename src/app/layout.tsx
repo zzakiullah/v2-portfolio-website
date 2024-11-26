@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import MyHeader from "@/components/MyHeader";
 import MyNav from "@/components/MyNav";
 
@@ -22,13 +23,7 @@ export default function RootLayout({
     const token = process.env.NEXT_PUBLIC_BEAM_ANALYTICS_TOKEN ?? "";
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                <script
-                    src={"https://beamanalytics.b-cdn.net/beam.min.js"}
-                    data-token={token}
-                    async
-                ></script>
-            </head>
+            <GoogleAnalytics />
             <body>
                 <Providers>
                     <MyHeader />
