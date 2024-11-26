@@ -5,7 +5,7 @@ const BeamAnalytics = () => {
 
     return (
         <Script
-            strategy={"lazyOnload"}
+            strategy={"beforeInteractive"}
             src={"https://beamanalytics.b-cdn.net/beam.min.js"}
             data-token={token}
             async
