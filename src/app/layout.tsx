@@ -20,7 +20,6 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const token = process.env.NEXT_PUBLIC_BEAM_ANALYTICS_TOKEN ?? "";
     return (
         <html lang="en" suppressHydrationWarning>
             <GoogleAnalytics />
