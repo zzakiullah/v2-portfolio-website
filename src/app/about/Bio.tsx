@@ -1,12 +1,12 @@
 "use client";
 
-import NextLink from "next/link";
+// import NextLink from "next/link";
 import { useRef } from "react";
 import { Flex, Heading, Text, UnorderedList, ListItem, Link, Image } from "@chakra-ui/react";
 // import { MdOutlineFace, MdOutlineWavingHand } from "react-icons/md";
 import { useInViewport } from "react-in-viewport";
 
-import ProgressBar from "@/components/ProgressBar";
+// import ProgressBar from "@/components/ProgressBar";
 
 export default function Bio() {
     const ref = useRef(null);
@@ -19,8 +19,8 @@ export default function Bio() {
     );
 
     return (
-        <Flex ref={ref} width={"100%"} flexDir={"row"} gap={12}>
-            <Flex
+        <Flex ref={ref} width={"100%"} flexDir={"row"} justifyContent={"center"} gap={12}>
+            {/* <Flex
                 flexDir={"column"}
                 alignItems={"end"}
                 flexBasis={["100px"]}
@@ -33,14 +33,17 @@ export default function Bio() {
                     lineEndColor={""}
                     // icon={<MdOutlineFace />}
                 />
-            </Flex>
+            </Flex> */}
             <Flex
                 className={"custom-transition-default"}
                 flexDir={"column"}
                 alignItems={"start"}
                 justifyContent={"center"}
                 gap={2}
+                // mx={[2, 10]}
+                px={4}
                 opacity={enterCount > 0 ? 1 : 0.2}
+                width={["95%", "95%", "90%", "85%", "80%", "1280px"]}
             >
                 <Heading as={"h2"} color={"white"} fontWeight={"medium"} fontSize={["4xl"]}>
                     About Me
@@ -59,7 +62,8 @@ export default function Bio() {
                 <Text color={"zz.textGray"} fontSize={["2xl"]}>
                     Aside from that, I enjoy casual chess, crocheting, and playing video games. Due
                     to my background, I also grew up learning a variety of languages, including
-                    Arabic, Bengali, and Bahasa Melayu, among others. For more on this, you can
+                    Arabic, Bengali, and Bahasa Melayu, among others.
+                    {/* For more on this, you can
                     visit my&nbsp;
                     <Link
                         as={NextLink}
@@ -70,7 +74,7 @@ export default function Bio() {
                     >
                         study
                     </Link>
-                    .
+                    . */}
                 </Text>
             </Flex>
         </Flex>

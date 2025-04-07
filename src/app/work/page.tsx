@@ -18,7 +18,6 @@ export default function Work() {
             alignItems={"center"}
             px={["6rem"]}
             py={["12rem"]}
-            gap={12}
         >
             {workData.map((data, index) => {
                 return (

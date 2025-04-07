@@ -4,7 +4,7 @@ import { ReactElement, useRef, useEffect, useState } from "react";
 import { Box, Flex, Link, Image, List, ListItem } from "@chakra-ui/react";
 import { useInViewport } from "react-in-viewport";
 
-import useScrollDirection from "@/hooks/useScrollDirection";
+// import useScrollDirection from "@/hooks/useScrollDirection";
 
 interface ProgressBarProps {
     circleColor: string;
@@ -28,10 +28,10 @@ export default function ProgressBar({
         {},
     );
 
-    const { scrollDirection, scrollY } = useScrollDirection();
+    // const { scrollDirection, scrollY } = useScrollDirection();
 
     return (
-        <Flex flexDir={"column"}>
+        <Flex flexDir={"column"} alignItems={"center"} flex={1}>
             {icon ? (
                 <Box>{icon}</Box>
             ) : (
@@ -40,10 +40,11 @@ export default function ProgressBar({
                     borderRadius={"50%"}
                     borderColor={"zz.purpleGray.300"}
                     borderWidth={"2px"}
-                    w={"12px"}
-                    h={"12px"}
+                    w={"16px"}
+                    h={"16px"}
                 ></Box>
             )}
+            <Box flex={1} borderColor={"zz.purpleGray.300"} borderLeftWidth={1} borderRightWidth={1}></Box>
         </Flex>
     );
 }
