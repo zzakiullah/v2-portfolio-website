@@ -18,7 +18,6 @@ export default function Projects() {
             alignItems={"center"}
             px={["6rem"]}
             py={["12rem"]}
-            gap={12}
         >
             {projectData.map((data, index) => {
                 return (
