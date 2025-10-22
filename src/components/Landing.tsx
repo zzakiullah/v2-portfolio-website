@@ -8,7 +8,6 @@ import {
     Text,
     Button,
     Link,
-    Tooltip,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -68,7 +67,7 @@ export default function Landing() {
                         fontSize={["lg", "xl", "xl", "2xl", "2xl", "3xl"]}
                         textAlign={"center"}
                     >
-                        Welcome to my space. (Some things are still under construction.)
+                        Welcome to my space. Feel free to click things.
                         {/* Welcome to my space. Feel free to&nbsp;
                         <Box
                             as={"button"}
@@ -90,44 +89,35 @@ export default function Landing() {
                         mt={4}
                         zIndex={5}
                     >
-                        <Tooltip
-                            label={"WIP - check back soon!"}
-                            aria-label={"WIP - check back soon!"}
-                            placement={"top"}
-                            hasArrow
+                        <Button
+                            as={NextLink}
+                            href={"/about"}
+                            className={"custom-btn"}
+                            w={styles.mainBtn.width}
+                            fontSize={styles.mainBtn.fontSize}
+                            px={styles.mainBtn.paddingX}
+                            py={styles.mainBtn.paddingY}
+                            borderWidth={styles.mainBtn.borderWidth}
+                            borderColor={styles.mainBtn.colorPrimary}
+                            bgColor={styles.mainBtn.colorPrimary}
+                            color={styles.mainBtn.colorText}
+                            _hover={styles.mainBtn.hoverPrimary}
+                            _focus={styles.mainBtn.hoverPrimary}
                         >
-                            <Button
-                                disabled
-                                opacity={0.2}
-                                as={NextLink}
-                                href={"/about"}
-                                className={"custom-btn custom-btn-disabled"}
-                                w={styles.mainBtn.width}
-                                fontSize={styles.mainBtn.fontSize}
-                                px={styles.mainBtn.paddingX}
-                                py={styles.mainBtn.paddingY}
-                                borderWidth={styles.mainBtn.borderWidth}
-                                borderColor={styles.mainBtn.colorPrimary}
-                                bgColor={styles.mainBtn.colorPrimary}
-                                color={styles.mainBtn.colorText}
-                                _hover={styles.mainBtn.hoverPrimary}
-                                _focus={styles.mainBtn.hoverPrimary}
+                            <Flex
+                                as="span"
+                                w={"100%"}
+                                flexDirection={"row"}
+                                alignItems={"center"}
+                                justifyContent={"space-between"}
+                                gap={2}
                             >
-                                <Flex
-                                    as="span"
-                                    w={"100%"}
-                                    flexDirection={"row"}
-                                    alignItems={"center"}
-                                    justifyContent={"space-between"}
-                                    gap={2}
-                                >
-                                    <Flex as="span">Get to know me</Flex>
-                                    <FaArrowRight
-                                        className={"external-link-icon custom-transition-default"}
-                                    />
-                                </Flex>
-                            </Button>
-                        </Tooltip>
+                                <Flex as="span">Get to know me</Flex>
+                                <FaArrowRight
+                                    className={"external-link-icon custom-transition-default"}
+                                />
+                            </Flex>
+                        </Button>
                         <Button
                             as={Link}
                             href={"/assets/Resume_Zulaikha_Zakiullah.pdf"}

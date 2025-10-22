@@ -30,10 +30,11 @@ export default function MyNav() {
                 return 2;
             case "/projects":
                 return 3;
-            case "/study":
-                return 4;
+            // case "/study":
+            //     return 4;
             case "/contact":
-                return 5;
+                // return 5;
+                return 4;
             default:
                 return 0;
         }
@@ -145,12 +146,12 @@ const navItems = [
         iconSelected: <MdFolder className={"nav-selected"} />,
         iconUnselected: <MdOutlineFolderOpen />,
     },
-    {
-        label: "Study",
-        href: "/study",
-        iconSelected: <MdSchool className={"nav-selected"} />,
-        iconUnselected: <MdOutlineSchool />,
-    },
+    // {
+    //     label: "Study",
+    //     href: "/study",
+    //     iconSelected: <MdSchool className={"nav-selected"} />,
+    //     iconUnselected: <MdOutlineSchool />,
+    // },
     {
         label: "Contact",
         href: "/contact",
