@@ -22,6 +22,7 @@ import {
     FaGithub,
     FaFileLines,
     FaRegCopyright,
+    FaRegSnowflake,
 } from "react-icons/fa6";
 
 export default function Landing() {
@@ -204,6 +205,15 @@ export default function Landing() {
                     >
                         <FaFileLines className={"main-icon custom-transition-slow"} />
                     </Link>
+                    <Link
+                        className={"main-icon-link"}
+                        href={"https://www.snowfoxcreative.com"}
+                        isExternal
+                        aria-label={"Visit business website"}
+                        color={"white"}
+                    >
+                        <FaRegSnowflake className={"main-icon custom-transition-slow"} />
+                    </Link>
                     <Box
                         as={"button"}
                         onClick={onOpen}
@@ -235,6 +245,18 @@ export default function Landing() {
                     >
                         <Text>Galaxy background image from Freepik</Text>
                         <Text>Designed and developed by me</Text>
+                        <Text>
+                            Check out{" "}
+                            <Link
+                                className={"main-icon-link"}
+                                href={"https://www.snowfoxcreative.com"}
+                                isExternal
+                                aria-label={"Business website"}
+                                color={"white"}
+                            >
+                                snowfoxcreative.com
+                            </Link>
+                        </Text>
                         <Text>Copyright &copy; Zulaikha Zakiullah 2025</Text>
                     </Flex>
                 </ModalContent>
