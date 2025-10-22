@@ -249,6 +249,7 @@ export default function Landing() {
                             Check out{" "}
                             <Link
                                 className={"main-icon-link"}
+                                style={{ textDecoration: "underline" }}
                                 href={"https://www.snowfoxcreative.com"}
                                 isExternal
                                 aria-label={"Business website"}
