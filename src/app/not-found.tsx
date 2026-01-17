@@ -8,7 +8,7 @@ export default function Home() {
             className={"min-h-screen"}
             flexDirection={"column"}
             alignItems={"center"}
-            justifyContent={"space-between"}
+            justifyContent={"center"}
             p={8}
         >
             <Flex

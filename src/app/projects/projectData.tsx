@@ -4,7 +4,7 @@ const projectData = [
         description: (
             <>
                 A 2D fighting platform game based on the Super Smash Bros. series. Choose from a
-                roster of 25+ characters and 15+ stages as you battle with up to 3 compute players.
+                roster of 25+ characters and 15+ stages as you battle with up to 3 computer players.
             </>
         ),
         srcUrl: "https://github.com/zzakiullah/Super-Smash-Bros-Rumble",

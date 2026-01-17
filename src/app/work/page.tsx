@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Flex, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
-import ProjectItem from "./ProjectItem";
-import projectData from "./projectData";
+import WorkItem from "./WorkItem";
+import workData from "./workData";
 
 export const metadata: Metadata = {
-    title: "Projects",
+    title: "Work",
 };
 
-export default function Projects() {
+export default function Work() {
     return (
         <Flex
             as={"main"}
@@ -18,16 +18,15 @@ export default function Projects() {
             alignItems={"center"}
             px={["6rem"]}
             py={["12rem"]}
-            gap={12}
         >
-            {projectData.map((data, index) => {
+            {workData.map((data, index) => {
                 return (
-                    <ProjectItem
+                    <WorkItem
                         key={index}
-                        title={data.title}
+                        company={data.company}
+                        positions={data.positions}
                         description={data.description}
-                        srcUrl={data.srcUrl}
-                        demoUrl={data.demoUrl}
+                        url={data.url}
                         tags={data.tags}
                     />
                 );

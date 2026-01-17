@@ -1,6 +1,6 @@
 "use client";
 
-import NextLink from "next/link";
+// import NextLink from "next/link";
 import { useRef } from "react";
 import { Flex, Heading, Text, Link, Tag, Wrap, WrapItem } from "@chakra-ui/react";
 import { GoArrowUpRight } from "react-icons/go";
@@ -54,7 +54,8 @@ export default function ProjectItem({
                 alignItems={"start"}
                 justifyContent={"center"}
                 gap={2}
-                my={[2]}
+                mt={-2}
+                mb={16}
                 opacity={enterCount > 0 ? 1 : 0.2}
                 // w={["1000px"]}
             >
